@@ -3,7 +3,7 @@
    ===================================================== */
 
 .account-masthead {
-    background-color: rgb(40, 40, 40);
+    background-color: rgb(30, 30, 30);
 }
 /* The "bubble" containing the number of new notifications. */
 .account-masthead .account .notifications a span {
@@ -11,12 +11,12 @@
 }
 /* The text and icons in the user account info. */
 .account-masthead .account ul li a {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 161, 0, 0.8);
 }
 /* The user account info text and icons, when the user's pointer is hovering
    over them. */
 .account-masthead .account ul li a:hover {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 161, 0);
   background-color: black;
 }
 
@@ -31,13 +31,13 @@
 /* The "navigation pills" in the masthead (the links to Datasets,
    Organizations, etc) when the user's pointer hovers over them. */
 .masthead .navigation .nav-pills li a:hover {
-  background-color: rgb(48, 48, 48);
+  background-color: rgb(191, 121, 0);
   color: white;
 }
 /* The "active" navigation pill (for example, when you're on the /dataset page
    the "Datasets" link is active). */
 .masthead .navigation .nav-pills li.active a {
-  background-color: rgb(74, 74, 74);
+  background-color: rgb(133, 84, 0);
 }
 /* The "box shadow" effect that appears around the search box when it
    has the keyboard cursor's focus. */
@@ -52,14 +52,17 @@
    =========================================== */
 
 /* Remove the "box shadow" effect around various boxes on the page. */
-.box {
+/*.box {
   box-shadow: none;
-}
+}*/
 /* Remove the borders around the "Welcome to CKAN" and "Search Your Data"
    boxes. */
+/*
 .hero .box {
   border: none;
 }
+*/
+
 /* Change the colors of the "Search Your Data" box. */
 .homepage .module-search .module-content {
   color: rgb(68, 68, 68);
@@ -67,7 +70,7 @@
 }
 /* Change the background color of the "Popular Tags" box. */
 .homepage .module-search .tags {
-  background-color: rgb(61, 61, 61);
+  background-color: rgb(70, 70, 70);
 }
 /* Remove some padding. This makes the bottom edges of the "Welcome to CKAN"
    and "Search Your Data" boxes line up. */
@@ -89,15 +92,15 @@
 
 .site-footer,
 body {
-  background-color: rgb(40, 40, 40);
+  background-color: rgb(70, 70, 70);
 }
 /* The text in the footer. */
 .site-footer,
 .site-footer label,
 .site-footer small {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 161, 0);
 }
 /* The link texts in the footer. */
 .site-footer a {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.8);
 }
