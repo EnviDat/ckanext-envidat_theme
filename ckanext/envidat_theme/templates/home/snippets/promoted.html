@@ -12,6 +12,7 @@
   {% if intro %}
       {{ h.render_markdown(intro) }}
   {% else %}
+      <br/> <br/>
       <h3 class="page-heading">{{ _("Welcome to Envidat") }}</h3>
       <p>
         {% trans %}Welcome to Envidat, the environmental data portal
