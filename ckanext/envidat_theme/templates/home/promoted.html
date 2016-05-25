@@ -1,0 +1,31 @@
+{% set intro = g.site_intro_text %}
+
+<div class="module-content box">
+  <header>
+    {% if intro %}
+      {{ h.render_markdown(intro) }}
+    {% else %}
+      <h1 class="page-heading">{{ _("Welcome to Envidat") }}</h1>
+      <p>
+        {% trans %}Welcome to Envidat, the environmental data portal
+        developed in the WSL
+        {% endtrans %}
+      </p>
+    {% endif %}
+  </header>
+  
+
+  {% block home_image %}
+    <section class="featured media-overlay hidden-phone">
+<!--
+      <h2 class="media-heading">{% block home_image_caption %}{{ _("This is a featured section") }}{% endblock %}</h2>
+-->
+      {% block home_image_content %}
+        <a class="media-image" href="#">
+          <img src="{{ h.url_for_static('/envidat_logo_promoted_420_220.png') }}" alt="EnvidatLogo" width="420" height="220" />
+        </a>
+      {% endblock %}
+    </section>
+  {% endblock %}
+</div>
+
