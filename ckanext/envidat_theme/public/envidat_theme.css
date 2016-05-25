@@ -104,3 +104,13 @@ body {
 .site-footer a {
   color: rgba(255, 255, 255, 0.8);
 }
+
+/* Custom classes */
+span.envidat-image-footer {
+  color: rgb(50, 50, 50);
+  font-size: 80%;
+}
+
+span.envidat-image-footer: hover {
+  color: #00BDF4;
+}

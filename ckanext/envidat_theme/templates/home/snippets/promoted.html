@@ -4,7 +4,8 @@
   {% block home_image %}
       {% block home_image_content %}
         <a class="media-image" href="#">
-          <img src="{{ h.url_for_static('/envidat_logo_promoted_283_17.png') }}" alt="EnvidatLogo" width="400"  />
+          <img src="{{ h.url_for_static('/forest_photo_420_220.png') }}" alt="EnvidatForest" width="420" height="220" />
+          <span class="envidat-image-footer">photo Simon Speich, www.speich.net</span>
         </a>
       {% endblock %}
   {% endblock %}  
@@ -13,11 +14,10 @@
       {{ h.render_markdown(intro) }}
   {% else %}
       <br/> <br/>
-      <h3 class="page-heading">{{ _("Welcome to Envidat") }}</h3>
+      <h3 class="page-heading">{{ _("Welcome to EnviDat") }}</h3>
       <p>
-        {% trans %}Welcome to Envidat, the environmental data portal
-        developed in the WSL
-        {% endtrans %}
+        {% trans %}Welcome to EnviDat, the environmental data portal
+        developed in the WSL {% endtrans %} 
       </p>
       <br/> <br/>
   {% endif %}
