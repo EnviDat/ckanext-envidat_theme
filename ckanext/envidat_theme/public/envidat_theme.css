@@ -114,3 +114,18 @@ span.envidat-image-footer {
 span.envidat-image-footer: hover {
   color: #00BDF4;
 }
+
+/* ====================================
+   Package Additional Information Table
+   ==================================== */
+.additional-info td {
+    width: 80%;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+.additional-info th {
+    width: auto;
+}
+.table {
+}
