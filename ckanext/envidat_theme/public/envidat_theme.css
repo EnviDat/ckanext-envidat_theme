@@ -120,8 +120,6 @@ span.envidat-image-footer: hover {
    ==================================== */
 .additional-info td {
     width: 80%;
-    white-space: nowrap;
-    word-wrap: normal;
 }
 
 .additional-info th {
