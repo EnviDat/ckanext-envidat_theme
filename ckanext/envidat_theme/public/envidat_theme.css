@@ -1,3 +1,4 @@
+
 /* =====================================================
    The "account masthead" bar across the top of the site
    ===================================================== */
@@ -126,4 +127,25 @@ span.envidat-image-footer: hover {
     width: auto;
 }
 .table {
+}
+
+/* ===============================
+    Forms
+   =============================== */
+#dataset-edit .icon-info-sign:before{
+    content: "\f05a";
+    font-size: 20px;
+}
+
+.form-horizontal .info-block{
+    padding: 2px 2px 2px 2px;
+}
+
+#dataset-edit .info-block .icon-info-sign{
+    text-align: top;
+    margin-top: -8px;
+    vertical-align: top;
+    height: 20px;
+    width: 23px;
+    margin-bottom: 3px;
 }
