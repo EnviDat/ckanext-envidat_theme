@@ -4,8 +4,7 @@
   {% block home_image %}
       {% block home_image_content %}
         <a class="media-image" href="#">
-          <img src="{{ h.url_for_static('/forest_photo_420_220.png') }}" alt="EnvidatForest" width="420" height="220" />
-          <span class="envidat-image-footer">photo Simon Speich, www.speich.net</span>
+          <img src="{{ h.url_for_static('/envidat-logo-icon-text_283_71.png') }}" alt="EnvidatLogo" width="420" /> <!-- height="71" /> -->
         </a>
       {% endblock %}
   {% endblock %}  
@@ -17,7 +16,12 @@
       <h3 class="page-heading">{{ _("Welcome to EnviDat") }}</h3>
       <p>
         {% trans %}Welcome to EnviDat, the environmental data portal
-        developed in the WSL {% endtrans %} (envidat@wsl.ch)
+        developed at the {% endtrans %} <a href="http://www.wsl.ch/">WSL</a> (envidat@wsl.ch)
+      </p>
+      <p>
+        <i><b>{% trans %}Mission Statement{% endtrans %}:</b> {% trans %}EnviDat is the WSL data portal providing unified and 
+        managed access to environmental monitoring and research data. EnviDat has the capability to host and publish data sets.
+        {% endtrans %}</i>
       </p>
       <br/> <br/>
   {% endif %}
