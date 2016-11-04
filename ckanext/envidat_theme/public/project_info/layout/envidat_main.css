@@ -1,0 +1,204 @@
+/*
+    Project: Envidat
+    Author: Sandro Bischof, WSL, 15-JAN-2016
+    Filename: envidat_datacite.css
+    Version: 1.0
+    Purpose: Styles for Data Cite Metadata
+    Creative Commons: CC BY, License Deed: http://creativecommons.org/licenses/by/4.0/, Legal Code: http://creativecommons.org/licenses/by/4.0/legalcode
+
+    NOTE: ..
+
+*/
+/*
+    USED COLOURS
+    ---------------------------------------------------------------------------------------------------------
+    #333333 - rgb(051, 051, 051): Grey 80% (default font colour, boxes like footer)
+    #FFA100 - rgb(255, 161, 000): Warm Envidat Orange (main titles, hovered links)
+    #00BDF4 - rgb(000, 189, 244): Cold Blue (links and visited links)
+    ---------------------------------------------------------------------------------------------------------
+
+
+     
+    Darker Orange: #FF6400 (activated links)
+    Grey  5%: #F2F2F2
+    Grey 15%: #D9D9D9
+    Grey 70%: #4D4D4D (default font colour e.g. used in <body>)
+    Grey 90%: #1A1A1A
+
+    font-weight: 300;
+*/
+body {
+	position: relative;
+	color: #333333;
+	font-size: 16px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.ed-top-buffer {
+	margin-top: 40px;
+}
+
+.ed-bottom-buffer {
+	margin-bottom: 40px;
+}
+
+.ed-header-box {
+	position: relative;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	min-height: 210px;
+	margin-top: 120px;
+	color: #FFA100;
+	background: linear-gradient(-90deg, #002242, #003366, #002242);
+	/*	background-image:-webkit-gradient(linear,left top,left bottom,from(#a66900),to(#ffa100));
+	background-image:-webkit-linear-gradient(top,#a66900 0,#ffa100 100%);
+	background-image:-o-linear-gradient(top,#a66900 0,#ffa100 100%);
+	background-image:linear-gradient(to bottom,#a66900 0,#ffa100 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a66900', endColorstr='#ffa100', GradientType=0);
+	background-repeat:repeat-x;
+*/;
+}
+
+.section {
+	padding-top: 120px;
+	margin-top: -120px;
+}
+
+.navbar {
+	min-height: 120px;
+	border-bottom-width: 1px;
+	border-bottom-color: #4D4D4D4D;
+	border-bottom-style: solid;
+}
+
+.nav>li {
+	height: 40px;
+/*	padding: 0;
+	margin: 7px;
+	border: 0; */
+}
+
+.navbar-nav>li>a {
+	font-weight: 600;
+	color: #00BDF4;
+}
+
+.navbar-nav>li>a:hover {
+	color: #FFA100;
+	background-color: transparent;
+}
+
+.navbar-brand {
+	height: 80px;
+}
+
+.ed-align-counter {
+	text-align: center;
+}
+
+@media ( min-width : 992px) {
+	.ed-align-counter {
+		text-align: right;
+	}
+}
+
+.ed-headline {
+	font-size: 28px;
+	font-weight: 600;
+	margin-bottom: 20px
+}
+
+.ed-counter-title {
+	line-height: 1.5em;
+}
+
+#ed-top-counter {
+	width: 100%;
+	margin-top: -10px;
+	font-size: 120px;
+	line-height: 100%
+}
+
+.nav-height {
+	min-height: 12em;
+	background-color: #eee;
+}
+
+.ed-footer {
+	bottom: 0;
+	background-color: #333333;
+	color: #D9D9D9;
+	padding: 50px 0;
+}
+
+.ed-activity-buffer {
+	padding-bottom: 3px;
+}
+
+.ed-activity img:hover {
+	opacity: 0.7;
+	filter: alpha(opacity = 70%);
+}
+
+.h2, h2 {
+	font-weight: 600;
+	margin-top: 1.5em;
+	border-top-style: solid;
+	border-width: 2px;
+	padding-top: 5px;
+}
+
+.h3, h3 {
+	font-weight: 600;
+	margin-top: 1em;
+}
+
+.h4, h4 {
+	font-weight: 600;
+	margin-top: 1em;
+}
+
+b {
+	font-weight: 600;
+}
+
+figure {
+	margin-top: 3em;
+}
+
+figcaption {
+	font-size: 14px;
+	text-align: center;
+	margin-bottom: 3em;
+	margin-top: 1em;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+div.ed-counter {
+	font-size: 40px;
+	color: #fff;
+}
+
+.ed-counter p {
+	font-size: 20px;
+	color: #fff;
+}
+
+.ed-counter:hover {
+	opacity: 0.3;
+	filter: alpha(opacity = 30);
+}
+
+.ed-contributor:hover {
+	opacity: 0.3;
+	filter: alpha(opacity = 30);
+}
+
+.ed-footer-link a {
+	color: #00BDF4;
+}
+
+.ed-footer-link a:hover {
+	text-decoration: underline;
+}

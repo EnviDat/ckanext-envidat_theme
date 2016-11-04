@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<link rel="shortcut icon" href="http://www.envidat.ch/css/envidat-logo-icon.ico">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700" rel="stylesheet" type="text/css">
+<link href="layout/bootstrap.min.css" rel="stylesheet" type='text/css'>
+<link href='layout/envidat_main.css' rel='stylesheet' type='text/css'>
+
+<title>ENVIDAT - The Environmental Data Portal</title>
+</head>
+<body>
+	<nav class="navbar navbar-fixed-top" style="background-color: #fff;">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header navbar-default" style="background-color: #fff;">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href=""> <img src="img/envidat-logo-icon-text.png" class="navbar-brand-image hidden-xs hidden-sm hidden-md" alt="Envidat" title="Envidat" /> <img
+                src="img/envidat-logo-icon.png" class="navbar-brand-image hidden-lg " alt="Envidat" title="Envidat"
+            />
+            </a>
+        </div>
+
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#sum">Summary</a></li>
+                <li><a href="#obj">Objectives</a></li>
+                <li><a href="#bac">Background</a></li>
+                <li><a href="#org">Organisation</a></li>
+                <li><a href="#peo">Contact</a></li>
+                <li><a href="#pil">Pilot</a></li>
+                <li><a href="#coo">Co-operation</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+	<header class="ed-header-box">
+		<div class="container">
+			<h3>Mission statement</h3>
+			<p>EnviDat is the WSL data portal providing unified and managed access to environmental monitoring and research data. EnviDat has the capability to host and publish data sets.</p>
+		</div>
+	</header>
+
+
+	<div class="container ed-top-buffer">
+		<section>
+			<h1>Project Description</h1>
+			<p>The EnviDat project aims at developing an efficient, unified and managed access portal for WSL's rich reservoir of environmental monitoring and research data, according to the data policy of
+				WSL. EnviDat is designed as a portal to publish, connect and search across existing data, rather than as a large data centre. The responsibility to curate research data remains with the original
+				data providers.</p>
+		</section>
+		<section id="sum" class="section">
+			<h2>Summary</h2>
+			<p>
+				The data portal serves two different user profiles. The <em>data user</em> (internal &amp; external) will be able to search for data sets and gain access to specific data. The <em>data
+					provider</em> submits the data sets in an appropriate format and supplies associated metadata. The data portal supports <em>shared data</em> as well as <em>open data</em>.
+			</p>
+			<figure>
+				<img src="img/accessmatrix.png" class="img-responsive" alt="System overview" class="img-responsive" style="margin: auto;">
+				<figcaption>
+					Fig1. - <b>Supported access to data and metadata by EnviDat</b>. The gray boxes indicate unsupported combinations. Data which can be accessed without user identification or other information is
+					referred to as <em>open data</em>. <em>Shared data</em>, however, is constrained by user identification
+				</figcaption>
+			</figure>
+			<p>
+				To access shared data, a <em>data user</em> needs to register and then sign in. The data sets could either be available from the internal repository or through remote access. The associated
+				metadata describes and makes the data searchable. The richer the metadata the more valuable the data. The metadata format supports relationships to other services, publications or documents.
+			</p>
+			<figure>
+				<img src="img/system.png" class="img-responsive" alt="System overview" class="img-responsive" style="margin: auto;">
+				<figcaption>
+					Fig2. - <b>Overview of the main EnviDat system building blocks and the relationship to users</b>. Main building blocks are indicated by black boxes; the associated white boxes list the
+					corresponding sub-components. The relationships and dependencies between the main building blocks are represented by the thin black lines.
+				</figcaption>
+			</figure>
+		</section>
+		<section id="obj" class="section">
+			<h2>Objectives</h2>
+			<h3>The project's objectives</h3>
+			<ol>
+				<li>Formal publication of many of WSL's environmental research data sets and thereby increase their usage and increase the citation record of WSL data</li>
+				<li>Increase national and international collaborations of WSL researchers through data sharing; allow adding value to WSL research data to the benefit of WSL and science in general;
+					contribute to a more efficient use of WSL resources available for research</li>
+				<li>Strengthening WSL's international position in environmental research</li>
+				<li>Foster data management at the WSL</li>
+				<li>Increase collaboration in the area of data access, data management and curation within WSL and the ETH Domain</li>
+
+			</ol>
+			<h3>The system's objectives</h3>
+			<ol>
+				<li>Provide access to WSL data sets and metadata records</li>
+				<li>Provide the technical means to publish data sets and assign DOIs</li>
+				<li>Support data-management based on a decentralised structure</li>
+			</ol>
+		</section>
+		<section id="bac" class="section">
+			<h2>Background</h2>
+			<p>The amount and quality of environmental data is rapidly increasing worldwide. This opens unprecedented opportunities for advancing science through the distribution and sharing of data and
+				through new national and international collaborations. In this context, data sets from long-term environmental monitoring and research are particularly valuable. WSL has a long tradition in data
+				collection, in particular in the areas of forest and snow research, and data sets include time series spanning over 100 years. WSL operates a comprehensive network for environmental research that
+				includes more than six thousand monitoring or observation sites for studying forests, biodiversity, landscapes, snow, permafrost, and natural hazards. WSL also successfully operates web- and
+				data-portals and has extensive experience in the management and curation of data from long-term monitoring and other research activities. Further, WSL has played a central role in the development
+				of a data platform (SwissEx / Osper) for the Competence Center for Environment and Sustainability (CCES), part of which is now being integrated into EnviDat.</p>
+		</section>
+		<section id="org" class="section">
+			<h2>Organisational Structure</h2>
+			<p>WSL has chosen a standard project organisation widely used for IT projects. The three hierarchical levels steering, management and execution are separated. The steering committee oversees
+				and guides the project, defines the overarching system requirements and ensures that project objectives are met. The project management creates the project foundations, manages the project at the
+				administrative and technical levels and manages the project team. The project team implements the system requirements and realises the project outcomes. The EnviDat user group provides expert
+				advice to the EnviDat project team on system setup and technical issues.</p>
+			<figure>
+				<img src="img/organisation.png" class="img-responsive" alt="Organisational structure" class="img-responsive" style="margin: auto;">
+				<figcaption>
+					Fig3. - <b>EnviDat project organisational structure</b>
+				</figcaption>
+			</figure>
+		</section>
+		<section id="peo" class="section">
+			<h2>People and Contact</h2>
+			<h3>Steering committee</h3>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="ed-activity ed-activity-buffer">
+						<b>Director of WSL</b><br /> <a href="http://www.wsl.ch/info/mitarbeitende/suche/index_EN?search_name=konrad+steffen&search=Search">Konrad Steffen</a>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<div class="ed-activity ed-activity-buffer">
+						<b>Member of the committee</b><br /> <a href="http://www.wsl.ch/info/mitarbeitende/suche/index_EN?search_name=michael+lehnin&search=Search">Michael Lehning</a>
+					</div>
+				</div>
+			</div>
+			<h3>Project management</h3>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="ed-activity ed-activity-buffer">
+						<b>Project leader</b><br /> <a href="http://www.wsl.ch/info/mitarbeitende/suche/index_EN?search_name=Gian-kasper&search=Search">Gian-Kasper Platter</a>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<div class="ed-activity ed-activity-buffer">
+						<b>Technical coordinator</b><br /> <a href="http://www.wsl.ch/info/mitarbeitende/suche/index_EN?search_name=sandro+bischof&search=Search">Sandro Bischof</a>
+					</div>
+				</div>
+			</div>
+			<h3>Project team</h3>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="ed-activity ed-activity-buffer">
+						<b>Software engineer</b><br /> <a href="http://www.wsl.ch/info/mitarbeitende/suche/index_EN?search_name=Lucia+Espona+Pernas&search=Search">Lucía Espona Pernas</a>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="ed-activity ed-activity-buffer">
+						<b>Software engineer OSPER integration</b><br /> <a href="https://people.epfl.ch/253044">Nataliya Kryvych</a>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="ed-activity ed-activity-buffer">
+						<b>Project manager OSPER integration</b><br /> <a href="http://www.wsl.ch/info/mitarbeitende/suche/index_EN?search=Search&search_name=Joel%20Caduff-Fiddes">Joel Caduff-Fiddes</a>
+					</div>
+				</div>
+			</div>
+			<h3>User Group</h3>
+			<h4>Mandate</h4>
+			<p>The EnviDat User group provides expert advice to the EnviDat project team on system setup and technical issues. The goal is to ensure that the EnviDat system is close to the data provider
+				and data user needs.</p>
+			<h4>WSL members</h4>
+			<ul>
+				<li>Matthias Gerber, Team leader Warning and Information Systems</li>
+				<li>Christian Ginzler, Team leader Remote Sensing</li>
+				<li>Dr. Matthias Haeni, Technical expert and data scientist LWF</li>
+				<li>Dr. Jeannette Nötzli, PERMOS Permafrost Network, GTN-P steering committee</li>
+				<li>Rolf Meile, Database manager and IT specialist LFI</li>
+				<li>Boris Pezzatti, Scientific staff member Insubric Ecosystems</li>
+				<li>Stephan Röthlisberger, Head of support unit Computer and IT Services</li>
+				<li>Silvia Stofer, Scientific staff member, National data base of lichens (Swisslichens)</li>
+				<li>Dr. Massimiliano Zappa, Team leader Hydrological Forecasts</li>
+			</ul>
+			<h4>External member</h4>
+			<ul>
+				<li>Dr. Harald von Waldow, Data management specialist, EAWAG</li>
+			</ul>
+		</section>
+		<section id="pil" class="section">
+			<h2>Pilot Phase</h2>
+			<p>The EnviDat project was launched in 2013 and was initially set up as a small project to explore possible solutions for a WSL data portal, to clarify the feasibility and to implement a data
+				portal prototype. The project was funded partially by the Competence Centre Environment and Sustainability (CCES) and WSL. The knowledge gained from the development of the prototype now feeds into
+				the next project phase.</p>
+			<p>One essential decision taken was to use Digital Object Identifiers (DOI) to identify data sets and to use DataCite as the metadata standard. DataCite was developed specifically to cite
+				scientific data sets. The software architecture of the prototype is simple and consists mainly of a relational database and REST services, that allow further use of the software components. The
+				server-sided programing language is Java in combination with the JSP-framework and client-sided techniques are HTML and JavaScript. The resulting software products are:</p>
+			<h3>DOI Infrastructure</h3>
+			<p>A core service was established to mint DOIs for different demands, not only for EnviDat. The service guarantees the uniqueness and the persistence storing of the DOIs. An additional service
+				registers DOIs and provides the associated metadata to the ETH DOI-Desk. The ETH DOI-Desk then propagates this information to different web services. The DOI service is using the internationally
+				standardised Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH).</p>
+			<h3>Data Publication</h3>
+			<p>
+				A landing page presents all existing metadata of a data set identified by a DOI. It is the entry point to a data set or to other documents and further information referenced by a web link. The DOI
+				and the landing page are core requirements for the correct citation of data sets and support building a culture of data citation. An attempt was made to gain more flexible metadata management with
+				a <em>Linked Data</em> repository.
+			</p>
+			<h3>Metadata Management</h3>
+			<p>To store metadata, we implemented two essential services: a) a metadata editor where all properties from the DataCite metadata standard can be filled manually, and b) a service where an
+				existing metadata file could be uploaded into the data portal.</p>
+			<h3>Data Retrieval</h3>
+			<p>The full text retrieval was realised with the Apache Solr search platform. The prototype offers a web application to serach and present the suitable results.</p>
+		</section>
+		<section id="coo" class="section">
+			<h2>Co-operation with other projects</h2>
+			<p>We aim to participate with related initiatives within the ETH domain and Swiss universities. A mid- to long-term goal is to extend the EnviDat system service to entire ETH domain and
+				possibly other environmental research institutes. Currently we collaborate with EAWAG. EnviDat is the data portal that holds in trust all data sets from projects funded by the CCES.</p>
+			<p>
+				<br />
+		</section>
+	</div>
+
+	<footer class="ed-footer">
+		<div class="container">
+			<h4>Contributors</h4>
+			<div class="row ">
+				<div class="col-md-2 col-xs-6">
+					<div class="ed-contributor">
+						<a href="http://www.wsl.ch/"><img src="http://www.envidat.ch/css/wsl-logo.png" class="img-responsive" alt="WSL Logo" style="width: 50px" /></a>
+					</div>
+				</div>
+				<div class="col-md-2 col-xs-6">
+					<div class="ed-contributor">
+						<a href="http://www.cces.ethz.ch/"><img src="http://www.envidat.ch/css/cces-logo.png" class="img-responsive" alt="CCES Logo" style="width: 150px;" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script type='text/javascript' src='https://code.jquery.com/jquery-1.11.1.min.js?ver=1.11.1'></script>
+	<script type='text/javascript' src='https://opendata.swiss/content/themes/wp-ogdch-theme/assets/js/app.min.js?ver=1.0.0'></script>
+</body>
+</html>
+
