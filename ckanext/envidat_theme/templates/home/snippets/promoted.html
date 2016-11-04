@@ -13,9 +13,8 @@
       {{ h.render_markdown(intro) }}
   {% else %}
       <br/> <br/>
-      <h3 class="page-heading">{{ _("Welcome to EnviDat") }}</h3>
       <p>
-        {% trans %}Welcome to EnviDat, the environmental data portal
+        {% trans %}Welcome to <b>EnviDat</b>, the environmental data portal
         developed at the {% endtrans %} <a href="http://www.wsl.ch/">WSL</a> (envidat@wsl.ch)
       </p>
       <p>
@@ -23,7 +22,7 @@
         managed access to environmental monitoring and research data. EnviDat has the capability to host and publish data sets.
         {% endtrans %}</i>
       </p>
-      <p>More information about the Envidat project can be found <b><a href="/project_info/about.html">here</a></b>.</p>
+      <p>More information about Envidat can be found <b><a href="/about">here</a></b>.</p>
       <br/>
   {% endif %}
   
