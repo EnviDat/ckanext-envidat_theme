@@ -1,0 +1,10 @@
+{% set organizations = h.get_featured_organizations(2) %}
+
+{% for organization in organizations %}
+    {% if loop.index == 2 %} 
+       <div class="box">
+        {% snippet 'snippets/organization_item.html', organization=organization, truncate=50, truncate_title=35 %}
+       </div>
+    {% endif %} 
+
+{% endfor %}
