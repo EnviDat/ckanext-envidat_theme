@@ -25,7 +25,6 @@ then
     git checkout release-v$CKANVERSION-latest
 fi
 python setup.py develop
-pip install -e "git+https://github.com/datagovuk/ckanext-hierarchy.git#egg=ckanext-hierarchy"
 pip install -r requirements.txt --allow-all-external
 pip install -r dev-requirements.txt --allow-all-external
 cd -
@@ -53,6 +52,8 @@ pip install pytz==2016.4
 
 echo "Installing ckanext-envidat_theme and its requirements..."
 python setup.py develop
+pip install -e "git+https://github.com/datagovuk/ckanext-hierarchy.git#egg=ckanext-hierarchy"
+pip install -r requirements.txt
 pip install -r dev-requirements.txt
 
 echo "Moving test.ini into a subdir..."
