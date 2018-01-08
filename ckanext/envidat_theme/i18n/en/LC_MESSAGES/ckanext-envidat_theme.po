@@ -2955,7 +2955,7 @@ msgstr ""
 
 #: ckan/templates/organization/bulk_process.html:41
 msgid "Make private"
-msgstr ""
+msgstr "Make unpublished"
 
 #: ckan/templates/organization/bulk_process.html:70
 #: ckan/templates/package/read.html:18
@@ -2970,7 +2970,7 @@ msgstr ""
 #: ckan/templates/snippets/private.html:2 ckan/templates/user/read_base.html:82
 #: ckan/templates/user/read_base.html:96
 msgid "Private"
-msgstr ""
+msgstr "Unpublished"
 
 #: ckan/templates/organization/bulk_process.html:88
 msgid "This organization has no datasets associated to it"
