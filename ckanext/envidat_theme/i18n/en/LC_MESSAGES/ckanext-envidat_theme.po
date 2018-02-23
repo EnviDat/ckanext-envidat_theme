@@ -284,7 +284,7 @@ msgstr "Projects"
 #: ckan/templates/tag/index.html:3 ckan/templates/tag/index.html:6
 #: ckan/templates/tag/index.html:12
 msgid "Tags"
-msgstr ""
+msgstr "Keywords"
 
 #: ckan/controllers/group.py:313 ckan/controllers/home.py:70
 #: ckan/controllers/package.py:242 ckan/lib/helpers.py:758
@@ -2862,7 +2862,7 @@ msgstr ""
 
 #: ckan/templates/home/snippets/search.html:16
 msgid "Popular tags"
-msgstr ""
+msgstr "Porpular keywords"
 
 #: ckan/templates/home/snippets/stats.html:5
 msgid "{0} statistics"
@@ -3770,7 +3770,7 @@ msgstr ""
 
 #: ckan/templates/revision/read.html:74
 msgid "Datasets' Tags"
-msgstr ""
+msgstr "Datsets' Keywords"
 
 #: ckan/templates/revision/snippets/revisions_list.html:7
 msgid "Entity"
@@ -3971,7 +3971,7 @@ msgstr ""
 
 #: ckan/templates/tag/index.html:33 ckan/templates/tag/index.html:34
 msgid "Search Tags"
-msgstr ""
+msgstr "Search Keywords"
 
 #: ckan/templates/user/dashboard.html:19 ckan/templates/user/dashboard.html:37
 msgid "News feed"
@@ -4509,7 +4509,7 @@ msgstr "No projects"
 #: ckanext/stats/templates/ckanext/stats/index.html:132
 #: ckanext/stats/templates/ckanext/stats/index.html:183
 msgid "Top Tags"
-msgstr ""
+msgstr "Top Keywords"
 
 #: ckanext/stats/templates/ckanext/stats/index.html:136
 msgid "Tag Name"
