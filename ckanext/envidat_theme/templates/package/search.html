@@ -1,4 +1,7 @@
 {% ckan_extends %}
+
+ {% block bodytag %} {{ super() }} class="dataset-map-expanded" {% endblock %}
+
 {% block secondary_content %}
 
   {% snippet "spatial/snippets/spatial_query.html", default_extent="{ \"type\": \"Polygon\", \"coordinates\": [[[5.95587, 45.81802],[5.95587, 47.80838],[10.49203, 47.80838],[10.49203, 45.81802],[5.95587, 45.81802]]]}" %}
