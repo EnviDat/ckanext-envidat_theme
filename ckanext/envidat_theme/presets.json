@@ -1,0 +1,35 @@
+{
+  "scheming_presets_version": 1,
+  "about": "these are the additional Envidat datacite based field presets",
+  "about_url": "http://github.com/EnviDat/ckanext-envidat_schema",
+  "presets": [
+    {
+      "preset_name": "envidat_select",
+      "values": {
+        "form_snippet": "envidat_select.html",
+        "display_snippet": "select.html",
+        "validators": "scheming_required scheming_choices"
+      }
+    },
+    {
+      "preset_name": "tag_string_upper_autocomplete",
+      "values": {
+        "validators": "envidat_string_uppercase ignore_missing tag_string_convert",
+        "form_attrs": {
+          "data-module": "autocomplete",
+          "data-module-tags": "",
+          "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?"
+        }
+      }
+    },
+    {
+      "preset_name": "envidat_datamanager_select",
+      "values": {
+        "form_snippet": "envidat_datamanager_select.html",
+        "display_snippet": "envidat_datamanager_display.html",
+        "validators": "scheming_required",
+        "sorted_choices": true
+      }
+    }
+  ]
+}

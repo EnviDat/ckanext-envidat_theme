@@ -1,0 +1,5 @@
+{%- set datamanager = h.envidat_theme_get_datamanager_user(data[field.field_name], data) -%}
+{%- if datamanager.get('fullname', false) -%}
+<b>{{ field.label }}: </b>{{ datamanager.get('fullname') }} 
+{#(<i> {{ datamanager.get('name') }}</i>, {{ datamanager.get('capacity')}} ) #}
+{%- endif -%}
