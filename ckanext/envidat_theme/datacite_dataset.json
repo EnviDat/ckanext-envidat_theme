@@ -1,0 +1,557 @@
+
+{
+  "scheming_version": 1,
+  "dataset_type": "dataset",
+  "about": "The default CKAN dataset schema plus additional DataCite fields",
+  "about_url": "http://github.com/ckan/ckanext-scheming",
+  "dataset_fields": [
+    {
+      "field_name": "title",
+      "label": "Title",
+      "preset": "title",
+      "form_placeholder": "eg. A descriptive title",
+      "datacite":"titles.title"
+    },
+    {
+      "field_name": "name",
+      "label": "URL",
+      "preset": "dataset_slug",
+      "form_placeholder": "eg. my-dataset"
+    },
+    {
+      "field_name": "doi",
+      "label": "DOI",
+      "form_snippet":"envidat_text_default.html",
+      "form_placeholder": "eg. 10.12345/678",
+      "help_text": "For a new DOI contact envidat@wsl.ch",
+      "help_inline": true,
+      "datacite":"identifier"
+    },
+    {
+      "field_name": "author",
+      "label": "Authors",
+      "preset": "composite_repeating",
+      "form_blanks": 1,
+      "help_text": "Authors of the dataset",
+      "help_inline": false,
+      "required": true,
+      "datacite":"creators",
+      "subfields": [
+          {
+            "field_name": "name",
+            "label": "Name",
+            "form_placeholder":"eg. John Smith",
+            "help_text": "Full first name and family name",
+            "help_inline": false,
+            "required": true,
+            "datacite": "creator.creatorName"
+          },
+          {
+            "field_name": "affiliation",
+            "label": "Affiliation",
+            "form_placeholder":"eg. WSL",
+            "required": true,
+            "datacite": "creator.affiliation"
+          },
+          {
+            "field_name": "email",
+            "label": "Email",
+            "form_placeholder":"eg. john@wsl.ch",
+            "help_text": "Contact e-mail for this author",
+            "help_inline": true
+          },
+          {
+            "field_name": "identifier",
+            "label": "Identifier",
+            "form_placeholder":"eg. 0000-0003-0166-248X",
+            "datacite": "creator.nameIdentifier"
+          },
+          {
+            "field_name": "identifier_scheme",
+            "label": "Scheme",
+            "preset": "select",
+            "datacite": "creator.nameIdentifier.nameIdentifierScheme",
+            "choices": [
+              {
+                "value": "orcid",
+                "label": "ORCID"
+              },
+              {
+                "value": "isni",
+                "label": "ISNI"
+              },
+              {
+                "value": "rid",
+                "label": "ResearcherID"
+              },
+              {
+                "value": "rgate",
+                "label": "ResearchGate"
+              }
+           ]
+         }
+      ]
+    },
+    {
+      "field_name": "owner_org",
+      "label": "Organization",
+      "preset": "dataset_organization"
+    },
+    {
+      "field_name": "subtitle",
+      "label": "Subtitles",
+      "preset": "composite_repeating",
+      "form_blanks": 1,
+      "datacite": "titles",
+      "subfields": [
+          {
+            "field_name": "subtitle",
+            "label": "Subtitle",
+            "form_placeholder":"eg. A secondary title",
+            "help_text": "A Secondary title for this dataset",
+            "help_inline": false,
+            "required": true,
+            "datacite": "title"
+          },
+          {
+            "field_name": "type",
+            "label": "Type",
+            "preset": "select",
+            "datacite": "title.titleType",
+            "choices": [
+              {
+                "value": "alternative_title",
+                "label": "Alternative Title"
+              },
+              {
+                "value": "subtitle",
+                "label": "Subtitle"
+              },
+              {
+                "value": "translated_title",
+                "label": "Translated Title"
+              },
+              {
+                "value": "other",
+                "label": "Other"
+              }
+
+           ]
+         },
+         {
+            "field_name": "language",
+            "label": "Language",
+            "preset": "select",
+            "datacite": "title.xml:lang",
+            "choices": [
+              {
+                "value": "en",
+                "label": "English"
+              },
+              {
+                "value": "de",
+                "label": "German"
+              },
+              {
+                "value": "fr",
+                "label": "French"
+              },
+              {
+                "value": "it",
+                "label": "Italian"
+              },
+              {
+                "value": "ro",
+                "label": "Romansh"
+              }
+           ]
+         }
+      ]
+    },
+    {
+      "field_name": "publication",
+      "label": "Publication",
+      "preset": "composite",
+      "help_text": "Publication of the dataset",
+      "help_inline": true,
+      "required": true,
+      "subfields": [
+         {
+           "field_name": "publisher",
+           "label": "Publisher",
+           "form_placeholder": "eg. Institution or Journal",
+           "datacite": "publisher"
+         },
+         {
+           "field_name": "publication_year",
+           "label": "Year",
+           "required": true,
+           "form_attrs": { "size":5, "maxlength":4 },
+           "form_placeholder": "YYYY",
+           "datacite": "publicationYear"
+         }
+       ]
+    },
+    {
+      "field_name": "notes",
+      "label": "Description",
+      "form_snippet": "markdown.html",
+      "form_placeholder": "eg. Some useful notes about the data",
+      "required": true,
+      "datacite": "descriptions.description"
+    },
+    {
+      "field_name": "tag_string",
+      "label": "Keywords",
+      "preset": "tag_string_upper_autocomplete",
+      "required": true,
+      "help_text": "At least 5 keywords required",
+      "help_inline": true,
+      "form_placeholder": "eg. FOREST, ICE TEMPERATURE, WATER",
+      "datacite": "subjects.subject"
+    },
+    {
+      "field_name": "date",
+      "label": "Dates",
+      "preset": "composite_repeating",
+      "form_blanks": 1,
+      "datacite": "dates",
+      "subfields": [
+         {
+           "field_name": "date_type",
+           "label": "Type",
+           "preset": "select",
+           "datacite": "date.dateType",
+           "required": true,
+           "form_include_blank_choice": true,
+           "choices": [
+             {
+               "value": "accepted",
+               "label": "Accepted"
+             },
+             {
+               "value": "available",
+               "label": "Available"
+             },
+             {
+               "value": "copyrighted",
+               "label": "Copyrighted"
+             },
+             {
+               "value": "collected",
+               "label": "Collected"
+             },
+             {
+               "value": "created",
+               "label": "Created"
+             },
+             {
+               "value": "issued",
+               "label": "Issued"
+             },
+             {
+               "value": "submitted",
+               "label": "Submitted"
+             },
+             {
+               "value": "updated",
+               "label": "Updated"
+             },
+             {
+               "value": "valid",
+               "label": "Valid"
+             }
+           ]
+         },
+         {
+           "field_name": "date",
+           "label": "Date",
+           "preset": "date",
+           "form_placeholder": "yyyy-mm-dd",
+           "form_attrs": { "size":12, "maxlength":10 },
+           "required": true,
+           "help_text": "Pick a date",
+           "help_inline": true,
+           "datacite": "date"
+          },
+          {
+           "field_name": "end_date",
+           "label": "End Date",
+           "preset": "date",
+           "form_placeholder": "yyyy-mm-dd",
+           "form_attrs": { "size":12, "maxlength":10 },
+           "required": false
+          }
+      ]
+    },
+    {
+      "field_name": "maintainer",
+      "label": "Contact Person",
+      "preset": "composite",
+      "required": true,
+      "datacite": "contributors",
+      "subfields":[
+          {
+            "field_name": "name",
+            "label": "Name",
+            "required": true,
+            "form_placeholder": "Joe Bloggs",
+            "datacite": "contributor.contributorName"
+          },
+          {
+            "field_name": "email",
+            "label": "Email",
+            "required": true,
+            "form_placeholder":"eg. john@wsl.ch"
+          },
+          {
+            "field_name": "affiliation",
+            "label": "Affiliation",
+            "form_placeholder":"eg. WSL",
+            "datacite": "contributor.affiliation"
+          },
+          {
+            "field_name": "identifier",
+            "label": "Identifier",
+            "form_placeholder":"eg. 0000-0003-0166-248X",
+            "datacite": "contributor.nameIdentifier"
+          },
+          {
+            "field_name": "identifier_scheme",
+            "label": "Scheme",
+            "required": false,
+            "preset": "select",
+            "datacite": "contributor.nameIdentifier.nameIdentifierScheme",
+            "choices": [
+              {
+                "value": "orcid",
+                "label": "ORCID"
+              },
+              {
+                "value": "isni",
+                "label": "ISNI"
+              },
+              {
+                "value": "rid",
+                "label": "ResearcherID"
+              },
+              {
+                "value": "rgate",
+                "label": "ResearchGate"
+              }
+           ]
+         }
+      ]
+    },
+    {
+      "field_name": "license_id",
+      "label": "License",
+      "form_snippet": "envidat_license.html",
+      "help_text": "License definitions and additional information can be found at http://opendefinition.org/",
+      "datacite": "rightsList.rights"
+    },
+    {
+      "field_name": "version",
+      "label": "Version",
+      "validators": "ignore_missing unicode package_version_validator",
+      "form_placeholder": "1.0",
+      "datacite": "version"
+    },
+    {
+      "field_name": "resource_type",
+      "label": "Type",
+      "form_placeholder": "Dataset",
+      "datacite": "resourceType",
+      "form_snippet":"envidat_text_default.html",
+      "default_value": "Dataset"
+    },
+    {
+      "field_name": "resource_type_general",
+      "label": "General Type",
+      "preset": "envidat_select",
+      "form_include_blank_choice":false,
+      "datacite": "resourceType.resourceTypeGeneral",
+      "choices": [
+              {
+                "value": "dataset",
+                "label": "Dataset"
+              },
+              {
+                "value": "audiovisual",
+                "label": "Audiovisual"
+              },
+              {
+                "value": "collection",
+                "label": "Collection"
+              },
+              {
+                "value": "event",
+                "label": "Event"
+              },
+              {
+                "value": "image",
+                "label": "Image"
+              },
+              {
+                "value": "interactive_resource",
+                "label": "Interactive Resource"
+              },
+              {
+                "value": "model",
+                "label": "Model"
+              },
+              {
+                "value": "physical_object",
+                "label": "Physical Object"
+              },
+              {
+                "value": "service",
+                "label": "Service"
+              },
+              {
+                "value": "software",
+                "label": "Software"
+              },
+              {
+                "value": "sound",
+                "label": "Sound"
+              },
+              {
+                "value": "text",
+                "label": "Text"
+              },
+              {
+                "value": "workflow",
+                "label": "Workflow"
+              },
+              {
+                "value": "other",
+                "label": "Other"
+              }
+         ]
+    },
+    {
+      "field_name": "language",
+      "label": "Language",
+      "datacite": "language",
+      "form_include_blank_choice":false,
+      "preset": "envidat_select",
+      "choices": [
+              {
+                "value": "en",
+                "label": "English"
+              },
+              {
+                "value": "de",
+                "label": "German"
+              },
+              {
+                "value": "fr",
+                "label": "French"
+              },
+              {
+                "value": "it",
+                "label": "Italian"
+              },
+              {
+                "value": "ro",
+                "label": "Romansh"
+              }
+         ]
+    },
+    {
+      "field_name": "spatial_info",
+      "label": "Location",
+      "form_snippet":"envidat_text_default.html",
+      "default_value": "Switzerland",
+      "form_placeholder": "Switzerland",
+      "help_text": "Free text spatial information",
+      "help_inline": true,
+      "datacite": "geoLocations.geoLocation.geoLocationPlace"
+    },
+    {
+      "field_name": "spatial",
+      "default_value": "{\"type\": \"Polygon\", \"coordinates\": [[[5.95587, 45.81802],[5.95587, 47.80838],[10.49203, 47.80838],[10.49203, 45.81802],[5.95587, 45.81802]]]}",
+      "form_snippet":"envidat_map.html",
+      "display_snippet": null,
+      "modal_text": "spatial_help",
+      "required": true,
+      "label": "Spatial Extent",
+      "help_text": "Draw the spatial extent in the map or paste a valid GeoJSON geometry",
+      "help_inline": true,
+      "form_placeholder": "{\"type\": \"Point\", \"coordinates\": [8.6124600, 47.4031100]}"
+    }
+  ],
+  "resource_fields": [
+    {
+      "field_name": "url",
+      "label": "URL",
+      "preset": "resource_url_upload"
+    },
+    {
+      "field_name": "name",
+      "label": "Name",
+      "form_placeholder": "eg. January 2011 Gold Prices",
+      "datacite":"titles.title"
+    },
+    {
+      "field_name": "description",
+      "label": "Description",
+      "form_snippet": "markdown.html",
+      "form_placeholder": "Some useful notes about the data",
+      "datacite": "descriptions.description"
+    },
+    {
+      "field_name": "format",
+      "label": "Format",
+      "preset": "resource_format_autocomplete",
+      "datacite": "formats.format"
+    },
+    {
+      "field_name": "doi",
+      "label": "DOI",
+      "form_placeholder": "eg. 10.12345/678",
+      "datacite":"identifier"
+    },
+    {
+      "field_name": "restricted",
+      "label": "Access Restriction",
+      "preset": "composite",
+      "subfields":
+        [
+          {
+            "field_name": "level",
+            "label": "Level",
+            "preset": "select",
+            "form_include_blank_choice": false,
+            "required": true,
+            "choices": [
+              {
+                "value": "public",
+                "label": "Public"
+              },
+              {
+                "value": "registered",
+                "label": "Registered Users"
+              },
+              {
+                "value": "any_organization",
+                "label": "Any Organization Members (Trusted Users)"
+              },
+              {
+                "value": "same_organization",
+                "label": "Same Organization Members"
+              }
+           ]
+         },
+         {
+           "field_name": "allowed_users",
+           "label": "Allowed Users",
+           "preset": "tag_string_autocomplete",
+           "data-module-source":"/api/2/util/user/autocomplete?q=?"
+         }
+       ]
+     }
+  ]
+}
+

@@ -1,0 +1,45 @@
+
+<section class="additional-info">
+  <h3>{{ _('Metadata') }}</h3>
+  <table class="table table-bordered table-condensed table-striped">
+    <thead style = "display: none;">
+      <tr>
+        <th scope="col">{{ _('Field') }}</th>
+        <th scope="col" width="100%">{{ _('Values') }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% block package_additional_info %}
+         {# This will be extended by scheming anyway #}
+         {{ super() }}
+      {% endblock %}
+      
+    </tbody>
+  </table>
+</section>
+
+
+{% block extras scoped %}
+  {% if pkg_dict.extras %}
+    <section class="additional-info">
+      <h4>{{ _('Custom Metadata') }}</h4>
+      <table class="table table-bordered table-condensed table-striped">
+        <thead style = "display: none;">
+          <tr>
+            <th scope="col">{{ _('Custom Field') }}</th>
+            <th scope="col" width="100%">{{ _('Values') }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for extra in h.sorted_extras(pkg_dict.extras) %}
+            {% set key, value = extra %}
+            <tr resource="_:extra{{ i }}">
+              <th scope="row" class="dataset-label" property="rdfs:label">{{ _(key) }}</th>
+              <td class="dataset-details" property="rdf:value">{{ value }}</td>
+            </tr>
+          {% endfor %}      
+        </tbody>
+      </table>
+    </section>
+  {% endif %}
+{% endblock %}

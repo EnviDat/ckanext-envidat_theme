@@ -1,0 +1,12 @@
+{% ckan_extends %}
+
+{% block metadata_fields %}
+  {% block package_metadata_fields_custom %} 
+    {% block custom_fields %}
+      <hr>
+      <p class="envidat-custom-header"> Custom Metadata </p>
+      {% snippet 'snippets/custom_form_fields.html', extras=data.extras, errors=errors, limit=3 %} 
+    {% endblock %} 
+  {% endblock %} 
+{% endblock %}
+

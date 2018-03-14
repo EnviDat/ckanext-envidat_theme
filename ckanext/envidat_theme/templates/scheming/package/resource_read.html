@@ -31,3 +31,29 @@
               <p class="muted break-word">{{ _('URL:') }} {{ res.url }}</p>
             {% endif %}
 {% endblock %}
+
+{%- block resource_format -%}
+  <tr>
+	<th scope="row">{{ _('Format') }}</th>
+	<td>{{ res.format or res.mimetype_inner or res.mimetype or _('unknown') }}</td>
+  </tr>
+{%- endblock -%}
+
+{%- block resource_fields -%}
+  {{ super() }}
+
+  {% if (res.size) %}
+  <tr>
+	<th scope="row">{{ _('Size') }}</th>
+	<td>{{ res.size }} bytes</td>
+  </tr>
+  {% endif %}
+{%- endblock -%}
+
+{% block data_preview %}
+  {% if (res.has_views )%}
+    {{ super() }}
+  {% else %}
+    <br/>
+  {% endif%}
+{% endblock %}
