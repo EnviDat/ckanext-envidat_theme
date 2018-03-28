@@ -3,7 +3,7 @@ from ckan.lib.plugins import DefaultTranslation
 
 import ckan.plugins.toolkit as toolkit
 
-from ckanext.envidat_theme import helpers
+from ckanext.envidat_theme import helpers, validation
 
 class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
