@@ -98,17 +98,17 @@ def envidat_theme_get_citation(package_data_dict):
 
     # separator
     if citation:
-        citation +=': '
+        citation +='. '
 
     # title
     title = package_data_dict.get('title', "")
     if title:
-        citation += title.strip() + '; '
+        citation += title.strip() + '. '
 
     # publisher
     publisher = _get_from_json_dict(package_data_dict.get('publication', ""), 'publisher')
     if (publisher):
-        citation += publisher + '; '
+        citation += publisher + '. '
 
     # doi:identifier.
     doi = package_data_dict.get('doi', "")
