@@ -77,6 +77,13 @@ def envidat_theme_get_citation(package_data_dict):
     citation string. Pattern:
     creators (publication_year): title; subtitle. publisher; doi:identifier.
     '''
+
+    # skip if custom citation is included
+    citation_found = package_data_dict.get('notes', "").find("__Citation:__")
+    if (citation_found>=0):
+        return False
+
+    # otherwise generate from metadata
     citation = u''
 
     # creators
