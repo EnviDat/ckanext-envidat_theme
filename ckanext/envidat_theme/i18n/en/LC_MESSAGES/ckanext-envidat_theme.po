@@ -367,11 +367,11 @@ msgstr ""
 
 #: ckan/controllers/group.py:805
 msgid "CKAN Group Revision History"
-msgstr "CKAN Project Revision History"
+msgstr "Project Revision History"
 
 #: ckan/controllers/group.py:809
 msgid "Recent changes to CKAN Group: "
-msgstr "Recent changes to CKAN Project: "
+msgstr "Recent changes to project: "
 
 #: ckan/controllers/group.py:830 ckan/controllers/package.py:462
 msgid "Log message: "
@@ -449,11 +449,11 @@ msgstr ""
 
 #: ckan/controllers/package.py:438
 msgid "CKAN Dataset Revision History"
-msgstr ""
+msgstr "Dataset Revision Histor"
 
 #: ckan/controllers/package.py:441
 msgid "Recent changes to CKAN Dataset: "
-msgstr ""
+msgstr "Recent changes to dataset: "
 
 #: ckan/controllers/package.py:498
 msgid "Unauthorized to create a package"
@@ -585,11 +585,11 @@ msgstr ""
 
 #: ckan/controllers/revision.py:42
 msgid "CKAN Repository Revision History"
-msgstr ""
+msgstr "Repository Revision History"
 
 #: ckan/controllers/revision.py:44
 msgid "Recent changes to the CKAN repository."
-msgstr ""
+msgstr "Recent changes to the repository."
 
 #: ckan/controllers/revision.py:108
 #, python-format
@@ -2753,8 +2753,7 @@ msgid ""
 "This could be to catalogue datasets for a particular project or team, or "
 "on a particular theme, or as a very simple way to help people find and "
 "search your own published datasets. "
-msgstr ""
-" You can use CKAN Projects to create and manage collections of datasets. "
+msgstr " You can use projects to create and manage collections of datasets. "
 "This could be to catalogue datasets for a particular project, program or team, or "
 "on a particular theme, or as a very simple way to help people find and "
 "search your own published datasets. "
@@ -2840,7 +2839,7 @@ msgstr ""
 
 #: ckan/templates/home/snippets/promoted.html:8
 msgid "Welcome to CKAN"
-msgstr ""
+msgstr "Welcome to EnviDat"
 
 #: ckan/templates/home/snippets/promoted.html:10
 msgid ""
@@ -3072,6 +3071,9 @@ msgid ""
 " datasets. Users can have different roles within an Organization, "
 "depending on their level of authorisation to create, edit and publish. "
 msgstr ""
+" Organizations are used to create, manage and publish collections of"
+" datasets. Users can have different roles within an Organization, "
+"depending on their level of authorisation to create, edit and publish. "
 
 #: ckan/templates/organization/snippets/organization_form.html:10
 msgid "My Organization"
@@ -3115,6 +3117,9 @@ msgid ""
 "together with a description and other information, at a fixed URL. "
 "Datasets are what users see when searching for data. "
 msgstr ""
+" A dataset is a collection of data resources (such as files), "
+"together with a description and other information, at a fixed URL. "
+"Datasets are what users see when searching for data. "
 
 #: ckan/templates/package/confirm_delete.html:11
 msgid "Are you sure you want to delete dataset - {name}?"
@@ -4032,6 +4037,8 @@ msgid ""
 " Your profile lets other CKAN users know about who you are and what you "
 "do. "
 msgstr ""
+" Your profile lets other users know about who you are and what you "
+"do. "
 
 #: ckan/templates/user/edit_user_form.html:7
 msgid "Change details"
