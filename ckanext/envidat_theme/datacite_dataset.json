@@ -89,6 +89,40 @@
                 "label": "ResearchGate"
               }
            ]
+         },
+         {
+            "field_name": "data_credit",
+            "label": "DataCRediT",
+            "required": false,
+            "preset": "multiple_checkbox",
+            "help_text": "Data Authorship Contributor Roles Taxonomy defined at https://www.wsl.ch/datacredit",
+            "help_inline": false,
+            "choices": [
+              {
+                "value": "collection",
+                "label": "Collection"
+              },
+               {
+                "value": "validation",
+                "label": "Validation"
+              },
+               {
+                "value": "curation",
+                "label": "Curation"
+              },
+               {
+                "value": "software",
+                "label": "Software"
+              },
+               {
+                "value": "publication",
+                "label": "Publication"
+              },
+               {
+                "value": "supervision",
+                "label": "Supervision"
+              }
+           ]
          }
       ]
     },
