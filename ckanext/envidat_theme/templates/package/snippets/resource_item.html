@@ -10,6 +10,7 @@
     </a>
     <ul class="dropdown-menu">
       {% block resource_item_explore_links %}
+      {% set url_token = h.envidat_theme_get_access_url(res) %}
       <li>
         <a href="{{ url }}">
           {% if res.has_views %}
@@ -24,11 +25,11 @@
       {% if res.url and h.is_url(res.url) %}
       <li>
           {% if res.has_views or res.url_type == 'upload' %}
-            <a href="{{ res.url }}" class="resource-url-analytics" download="">
+            <a href="{{ url_token }}" class="resource-url-analytics" download="">
               <i class="fa fa-arrow-circle-o-down"></i>
             {{ _('Download') }}
           {% else %}
-            <a href="{{ res.url }}" class="resource-url-analytics" target="_blank">
+            <a href="{{ url_token }}" class="resource-url-analytics" target="_blank">
               <i class="fa fa-external-link"></i>
             {{ _('Go to resource') }}
           {% endif %}
