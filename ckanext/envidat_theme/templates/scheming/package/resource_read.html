@@ -1,5 +1,6 @@
 {% ckan_extends %}
 
+
 {% block resource_actions_inner %}
             {% if h.check_access('package_update', {'id':pkg.id }) %}
               <li>{% link_for _('Manage'), controller='package', action='resource_edit', id=pkg.name, resource_id=res.id, class_='btn', icon='wrench' %}</li>
@@ -26,7 +27,8 @@
 
 {% block resource_read_url %}
             {% if res.url and h.is_url(res.url) %}
-              <p class="muted ellipsis">{{ _('URL:') }} <a class="resource-url-analytics" href="{{ res.url }}" title="{{ res.url }}" download="">{{ res.url }}</a></p>
+              {% set url_token = h.envidat_theme_get_access_url(res) %}
+              <p class="muted ellipsis">{{ _('URL:') }} <a class="resource-url-analytics" href="{{ url_token }}" title="{{ url_token }}" download="">{{ url_token }}</a></p>
             {% elif res.url %}
               <p class="muted break-word">{{ _('URL:') }} {{ res.url }}</p>
             {% endif %}

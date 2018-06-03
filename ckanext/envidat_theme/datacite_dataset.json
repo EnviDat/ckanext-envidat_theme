@@ -583,6 +583,10 @@
            "label": "Allowed Users",
            "preset": "tag_string_autocomplete",
            "data-module-source":"/api/2/util/user/autocomplete?q=?"
+         },
+         {
+           "field_name": "shared_secret",
+           "label": "Shared Secret"
          }
        ]
      }

@@ -1,10 +1,66 @@
 import json
+import time
+import datetime
+
+import hashlib
+
+import ckan.plugins.toolkit as toolkit
 
 from ckanext.hierarchy import helpers
 import ckan.plugins as p
 
+from ckan.common import c
+
 import logging
 logger = logging.getLogger(__name__)
+
+def _envidat_theme_get_hash(text):
+     #https://www.pythoncentral.io/hashing-strings-with-python/
+     # SHA256
+     hash_sha256 = hashlib.sha256(text)
+     hex_dig_sha256 = hash_sha256.hexdigest()
+     # MD5
+     hash_md5 = hashlib.md5(hex_dig_sha256)
+     hex_dig_md5 = hash_md5.hexdigest()
+     return(hex_dig_md5)
+
+def envidat_theme_get_access_url(resource, user=''):
+    token_tag = "envidat_token"
+
+    url = resource.get('url','no_url')
+
+    resource_id = resource.get('id','')
+    resource_dict = {}
+
+    if resource_id:
+        try:
+            resource_dict = toolkit.get_action('resource_show')(
+                                context={'ignore_auth': True},
+                                data_dict={'id':resource_id})
+        except:
+            return (url)
+
+        if resource_dict and (resource_dict.get('url_type', 'upload')!='upload'):
+            restricted_dict = {}
+            try:
+                restricted_dict = json.loads(resource_dict.get("restricted", "{}"))
+            except:
+                restricted_dict = {}
+            shared_secret = restricted_dict.get("shared_secret","")
+            if shared_secret:
+                if not user:
+                     user = c.user
+                if user:
+                    user_str = str(user)
+                    timestamp_str = datetime.datetime.fromtimestamp(time.time()).strftime('%Y%m%d')
+                    token = _envidat_theme_get_hash( str(shared_secret) + user_str + timestamp_str)
+
+                    if (url.find('?')<0):
+                        url += '?'
+                    else:
+                        url += '&'
+                    url += token_tag + '=' + token
+    return url
 
 # Copied from hierarchy, maybe this code should go there!!
 def envidat_theme_get_children_packages(organization, count=2):
