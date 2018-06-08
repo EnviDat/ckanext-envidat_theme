@@ -1,6 +1,6 @@
 {% import 'macros/form.html' as form %}
 
-{%- set selection = ['odc-by', 'odc-odbl', 'other-at', 'other-nc', 'other-closed', 'other-open'] -%}
+{%- set selection = ['odc-odbl', 'other-at', 'other-nc', 'other-closed', 'other-open'] -%}
 {%- set options=[] -%}
 {%- if field.get('form_include_blank_choice', false) -%}
     {%- do options.append({
