@@ -381,7 +381,7 @@
       "field_name": "license_id",
       "label": "License",
       "form_snippet": "envidat_license.html",
-      "help_text": "License definitions and additional information can be found at http://opendefinition.org/",
+      "help_text": "License definitions and additional information can be found at https://opendatacommons.org/licenses/odbl/summary/",
       "datacite": "rightsList.rights"
     },
     {
