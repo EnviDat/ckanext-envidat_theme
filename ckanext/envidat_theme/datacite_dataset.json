@@ -28,6 +28,29 @@
       "datacite":"identifier"
     },
     {
+      "field_name": "owner_org",
+      "label": "Organization",
+      "preset": "dataset_organization"
+    },
+    {
+      "field_name": "notes",
+      "label": "Description",
+      "form_snippet": "markdown.html",
+      "form_placeholder": "eg. Some useful notes about the data",
+      "required": true,
+      "datacite": "descriptions.description"
+    },
+    {
+      "field_name": "tag_string",
+      "label": "Keywords",
+      "preset": "tag_string_upper_autocomplete",
+      "required": true,
+      "help_text": "At least 5 keywords required",
+      "help_inline": true,
+      "form_placeholder": "eg. FOREST, ICE TEMPERATURE, WATER",
+      "datacite": "subjects.subject"
+    },
+    {
       "field_name": "author",
       "label": "Authors",
       "preset": "composite_repeating",
@@ -127,11 +150,6 @@
       ]
     },
     {
-      "field_name": "owner_org",
-      "label": "Organization",
-      "preset": "dataset_organization"
-    },
-    {
       "field_name": "subtitle",
       "label": "Subtitles",
       "preset": "composite_repeating",
@@ -225,24 +243,6 @@
            "datacite": "publicationYear"
          }
        ]
-    },
-    {
-      "field_name": "notes",
-      "label": "Description",
-      "form_snippet": "markdown.html",
-      "form_placeholder": "eg. Some useful notes about the data",
-      "required": true,
-      "datacite": "descriptions.description"
-    },
-    {
-      "field_name": "tag_string",
-      "label": "Keywords",
-      "preset": "tag_string_upper_autocomplete",
-      "required": true,
-      "help_text": "At least 5 keywords required",
-      "help_inline": true,
-      "form_placeholder": "eg. FOREST, ICE TEMPERATURE, WATER",
-      "datacite": "subjects.subject"
     },
     {
       "field_name": "date",
