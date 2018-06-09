@@ -6,7 +6,7 @@
   {% if citation %}
     <b>Citation:</b> 
     <blockquote>
-    <p><i> {{ h.envidat_theme_get_citation(c.pkg_dict) }} </i></p>
+    <p><i> {{ h.envidat_theme_get_citation(c.pkg_dict)|safe }} </i></p>
     </blockquote>
   {% endif %}
 {% endblock %}

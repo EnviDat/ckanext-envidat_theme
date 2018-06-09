@@ -173,7 +173,7 @@ def envidat_theme_get_citation(package_data_dict):
     # doi:identifier.
     doi = package_data_dict.get('doi', "")
     if doi:
-        citation += 'doi:' + doi.strip() + '.'
+        citation += '<a href="https://doi.org/' + doi.strip() + '">doi:' + doi.strip() + '</a>.'
 
     return citation
 
