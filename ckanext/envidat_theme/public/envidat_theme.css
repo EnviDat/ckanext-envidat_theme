@@ -12,12 +12,12 @@
 }
 /* The text and icons in the user account info. */
 .account-masthead .account ul li a {
-  color: rgba(255, 161, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 /* The user account info text and icons, when the user's pointer is hovering
    over them. */
 .account-masthead .account ul li a:hover {
-  color: rgba(255, 161, 0);
+  color: rgba(255, 255, 255, 0.8);
   background-color: black;
 }
 
@@ -99,7 +99,7 @@ body {
 .site-footer,
 .site-footer label,
 .site-footer small {
-  color: rgba(255, 161, 0);
+  color: rgba(255, 255, 255, 0.8);
 }
 /* The link texts in the footer. */
 .site-footer a {
