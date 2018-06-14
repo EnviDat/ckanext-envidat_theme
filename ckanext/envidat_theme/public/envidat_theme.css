@@ -12,7 +12,7 @@
 }
 /* The text and icons in the user account info. */
 .account-masthead .account ul li a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.4);
 }
 /* The user account info text and icons, when the user's pointer is hovering
    over them. */
