@@ -118,7 +118,7 @@
             "label": "DataCRediT",
             "required": false,
             "preset": "multiple_checkbox",
-            "help_text": "Data Authorship Contributor Roles Taxonomy defined at https://www.wsl.ch/datacredit",
+            "help_text": "Data Authorship Contributor Roles Taxonomy defined at [www.wsl.ch/datacredit]https://www.wsl.ch/datacredit/",
             "help_inline": false,
             "choices": [
               {
