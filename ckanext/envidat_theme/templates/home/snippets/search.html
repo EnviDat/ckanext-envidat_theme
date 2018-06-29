@@ -12,14 +12,14 @@
       </button>
     </div>
   </form>
-  <div class="tags"  style="padding-top:0px;padding-bottom:5px">
+  <div class="tags"  style="padding-top:2px;padding-bottom:7px;padding-left:25px">
     <!-- <h3>{{ _('Popular tags') }}</h3> -->
     {% for tag in tags %}
-      {% set padded_tag = tag.display_name|center(width=25,) %}
+      {% set padded_tag = tag.display_name|center(width=24,) %}
       {%- if tag.display_name|length>22 -%}
-        <a class="tag" href="{% url_for controller='package', action='search', tags=tag.name %}">{{ h.truncate(padded_tag, 22) }}</a>
+        <a class="tag" href="{% url_for controller='package', action='search', tags=tag.name %}">{{ h.truncate(tag.display_name, 22) }}</a>
       {%- else -%}
-        <a class="tag" href="{% url_for controller='package', action='search', tags=tag.name %}">{{ padded_tag|replace(" ", "&nbsp;")|safe  }}</a>
+        <a class="tag" href="{% url_for controller='package', action='search', tags=tag.name %}">{{ padded_tag|replace("    ", "     ")|replace(" ", "&nbsp;")|safe  }}</a>
        {%- endif -%}
     {% endfor %}
   </div>
