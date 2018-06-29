@@ -19,7 +19,7 @@
       {%- if tag.display_name|length>22 -%}
         <a class="tag" href="{% url_for controller='package', action='search', tags=tag.name %}">{{ h.truncate(tag.display_name, 22) }}</a>
       {%- else -%}
-        <a class="tag" href="{% url_for controller='package', action='search', tags=tag.name %}">{{ padded_tag|replace("    ", "     ")|replace(" ", "&nbsp;")|safe  }}</a>
+        <a class="tag" href="{% url_for controller='package', action='search', tags=tag.name %}">{{ padded_tag|replace("     ", "      ")|replace(" ", "&nbsp;")|safe  }}</a>
        {%- endif -%}
     {% endfor %}
   </div>
