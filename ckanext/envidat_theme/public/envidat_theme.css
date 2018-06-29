@@ -64,6 +64,12 @@
 }
 */
 
+/* Change background image */
+body .hero {
+    background: url("noisy_pattern.png");
+  }
+
+
 /* Change the colors of the "Search Your Data" box. */
 .homepage .module-search .module-content {
   color: rgb(68, 68, 68);
