@@ -15,7 +15,7 @@
   <div class="tags"  style="padding-top:2px;padding-bottom:7px;padding-left:25px">
     <!-- <h3>{{ _('Popular tags') }}</h3> -->
     {% for tag in tags %}
-      {% set padded_tag = tag.display_name|center(width=24,) %}
+      {% set padded_tag = tag.display_name|center(width=23,) %}
       {%- if tag.display_name|length>=22 -%}
         <a class="tag" href="{% url_for controller='package', action='search', tags=tag.name %}">{{ h.truncate(tag.display_name, 22) }}</a>
       {%- else -%}
