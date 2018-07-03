@@ -65,10 +65,19 @@
 */
 
 /* Change background image */
+/* Home screen */
 body .hero {
-    background: url("noisy_pattern.png");
+    background: #e6e6e6 url("forest_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
+/* everywhere */
+[role=main],
+  .main {
+    padding-top: 10px;
+    background: #eeeeee url("noisy_pattern.png");
+  }
 
 /* Change the colors of the "Search Your Data" box. */
 .homepage .module-search .module-content {
