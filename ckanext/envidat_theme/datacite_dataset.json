@@ -80,6 +80,7 @@
             "field_name": "email",
             "label": "Email",
             "form_placeholder":"eg. john@wsl.ch",
+            "required": true,
             "help_text": "Contact e-mail for this author",
             "help_inline": true
           },
