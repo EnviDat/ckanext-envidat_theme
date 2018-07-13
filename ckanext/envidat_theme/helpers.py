@@ -63,7 +63,7 @@ def envidat_theme_get_access_url(resource, user_id=''):
                         url += '?'
                     else:
                         url += '&'
-                    url += token_tag + '=' + token + '&' + username_tag + '=' + user_id
+                    url += token_tag + '=' + token + '&' + username_tag + '=' + user_mail
     return url
 
 # Copied from hierarchy, maybe this code should go there!!
