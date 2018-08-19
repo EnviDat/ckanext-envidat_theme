@@ -3,16 +3,16 @@ from ckan.lib.plugins import DefaultTranslation
 
 import ckan.plugins.toolkit as toolkit
 
-from ckanext.envidat_theme import helpers, validation
+from ckanext.envidat_theme import helpers, validation, logic
 
 class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers, inherit=True)
     plugins.implements(plugins.ITranslation)
     plugins.implements(plugins.IValidators)
-    
-    # IConfigurer
+    plugins.implements(plugins.IAuthFunctions)
 
+    # IConfigurer
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
@@ -31,3 +31,11 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     # IValidators
     def get_validators(self):
         return { 'envidat_string_uppercase': validation.envidat_string_uppercase }
+
+    # IAuthFunctions
+    # The portal admin can always update
+    # Editors can edit their own datasets
+    # Organization admins can edit all datasets in their organization
+    def get_auth_functions(self):
+        return {'package_update': logic.envidat_theme_package_update}
+
