@@ -521,7 +521,9 @@
     {
       "field_name": "url",
       "label": "URL",
-      "preset": "resource_url_upload"
+      "preset": "resource_url_upload",
+      "help_text": "for files larger than 10 GB please contact envidat@wsl.ch",
+      "form_snippet": "envidat_upload.html"
     },
     {
       "field_name": "name",
