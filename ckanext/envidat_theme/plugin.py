@@ -26,7 +26,8 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
                  'envidat_theme_get_datamanager_user': helpers.envidat_theme_get_datamanager_user,
                  'envidat_theme_set_default': helpers.envidat_theme_set_default,
                  'envidat_theme_get_markup': helpers.envidat_theme_get_markup,
-                 'envidat_theme_get_access_url': helpers.envidat_theme_get_access_url}
+                 'envidat_theme_get_access_url': helpers.envidat_theme_get_access_url,
+                 'envidat_theme_sizeof_fmt': helpers.envidat_theme_sizeof_fmt}
 
     # IValidators
     def get_validators(self):

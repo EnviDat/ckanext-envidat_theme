@@ -232,3 +232,15 @@ def envidat_theme_get_datamanager_user(username, organization_dict):
             datamanager_user = user
     return datamanager_user
 
+
+def envidat_theme_sizeof_fmt(num_text):
+    try:
+        num = float(num_text)
+    except:
+        return (str(num_text) + " bytes")
+    for unit in ['bytes','KB','MB','GB','TB','PB','EB','ZB']:
+        if abs(num) < 1024.0:
+            return "%3.2f %s" % (num, unit)
+        num /= 1024.0
+    return "%.1f %s" % (num, 'YB')
+

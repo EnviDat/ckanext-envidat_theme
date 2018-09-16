@@ -48,7 +48,7 @@
   {% if (res.size) %}
   <tr>
 	<th scope="row">{{ _('Size') }}</th>
-	<td>{{ res.size }} bytes</td>
+	<td>{{ h.envidat_theme_sizeof_fmt(res.size) }}</td>
   </tr>
   {% endif %}
 {%- endblock -%}
