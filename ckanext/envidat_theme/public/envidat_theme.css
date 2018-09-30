@@ -171,3 +171,13 @@ p.envidat-custom-header{
     display: inline-block;
     padding-bottom: 10px; 
 }
+
+
+/* =====================
+   Breadcrumbs
+   ===================== */
+.breadcrumb > li + li:before {
+  content: "/\00a0";
+  padding: 0 5px;
+  color: #777777;
+}
