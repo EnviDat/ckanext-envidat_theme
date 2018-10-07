@@ -24,7 +24,7 @@
       "form_snippet":"envidat_text_default.html",
       "form_placeholder": "eg. 10.12345/678",
       "help_text": "For a new DOI contact envidat@wsl.ch",
-      "help_inline": true,
+      "help_inline": false,
       "datacite":"identifier"
     },
     {
@@ -501,7 +501,7 @@
       "default_value": "Switzerland",
       "form_placeholder": "Switzerland",
       "help_text": "Free text spatial information",
-      "help_inline": true,
+      "help_inline": false,
       "datacite": "geoLocations.geoLocation.geoLocationPlace"
     },
     {
@@ -513,7 +513,7 @@
       "required": true,
       "label": "Spatial Extent",
       "help_text": "Draw the spatial extent in the map or paste a valid GeoJSON geometry",
-      "help_inline": true,
+      "help_inline": false,
       "form_placeholder": "{\"type\": \"Point\", \"coordinates\": [8.6124600, 47.4031100]}"
     }
   ],
