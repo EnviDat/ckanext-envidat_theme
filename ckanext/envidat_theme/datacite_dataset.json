@@ -233,7 +233,8 @@
            "field_name": "publisher",
            "label": "Publisher",
            "form_placeholder": "eg. Institution or Journal",
-           "datacite": "publisher"
+           "datacite": "publisher",
+           "default_value": "EnviDat"
          },
          {
            "field_name": "publication_year",
