@@ -2,10 +2,13 @@
 
 {% block meta %}
       {{ super() }}
+      {% if h.current_url() == "/" %}
         <meta http-equiv="refresh" content="0; URL='https://www.envidat.ch/ui'" />
-	<script type="text/javascript">
+        <script type="text/javascript">
               window.location.href = "https://www.envidat.ch/ui";
-        </script>
+        </script>    
+      {% endif %}
+      <meta name="h_current_url" content="{{ h.current_url() }}" />
 {% endblock %}
 
 {% block styles %}
