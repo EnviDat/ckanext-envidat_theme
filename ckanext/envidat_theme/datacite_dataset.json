@@ -62,7 +62,7 @@
       "subfields": [
           {
             "field_name": "name",
-            "label": "Name",
+            "label": "Name Author no.",
             "form_placeholder":"eg. John Smith",
             "help_text": "Full first name and family name",
             "help_inline": false,
@@ -71,14 +71,14 @@
           },
           {
             "field_name": "affiliation",
-            "label": "Affiliation",
+            "label": "Affiliation Author no.",
             "form_placeholder":"eg. WSL",
             "required": true,
             "datacite": "creator.affiliation"
           },
           {
             "field_name": "email",
-            "label": "Email",
+            "label": "Email Author no.",
             "form_placeholder":"eg. john@wsl.ch",
             "required": true,
             "help_text": "Contact e-mail for this author",
@@ -86,13 +86,13 @@
           },
           {
             "field_name": "identifier",
-            "label": "Identifier",
+            "label": "Identifier Author no.",
             "form_placeholder":"eg. 0000-0003-0166-248X",
             "datacite": "creator.nameIdentifier"
           },
           {
             "field_name": "identifier_scheme",
-            "label": "Scheme",
+            "label": "Scheme Author no.",
             "preset": "select",
             "datacite": "creator.nameIdentifier.nameIdentifierScheme",
             "choices": [
@@ -116,7 +116,7 @@
          },
          {
             "field_name": "data_credit",
-            "label": "DataCRediT",
+            "label": "DataCRediT Author no.",
             "required": false,
             "preset": "multiple_checkbox",
             "help_text": "Data Authorship Contributor Roles Taxonomy defined at [www.wsl.ch/datacredit]https://www.wsl.ch/datacredit/",
@@ -151,9 +151,69 @@
       ]
     },
     {
+      "field_name": "maintainer",
+      "label": "Contact Person",
+      "preset": "composite",
+      "required": true,
+      "datacite": "contributors",
+      "subfields":[
+          {
+            "field_name": "name",
+            "label": "Name Contact Person",
+            "required": true,
+            "form_placeholder": "Joe Bloggs",
+            "datacite": "contributor.contributorName"
+          },
+          {
+            "field_name": "email",
+            "label": "Email Contact Person",
+            "required": true,
+            "form_placeholder":"eg. john@wsl.ch"
+          },
+          {
+            "field_name": "affiliation",
+            "label": "Affiliation Contact Person",
+            "form_placeholder":"eg. WSL",
+            "datacite": "contributor.affiliation"
+          },
+          {
+            "field_name": "identifier",
+            "label": "Identifier Contact Person",
+            "form_placeholder":"eg. 0000-0003-0166-248X",
+            "datacite": "contributor.nameIdentifier"
+          },
+          {
+            "field_name": "identifier_scheme",
+            "label": "Scheme Contact Person",
+            "required": false,
+            "preset": "select",
+            "datacite": "contributor.nameIdentifier.nameIdentifierScheme",
+            "choices": [
+              {
+                "value": "orcid",
+                "label": "ORCID"
+              },
+              {
+                "value": "isni",
+                "label": "ISNI"
+              },
+              {
+                "value": "rid",
+                "label": "ResearcherID"
+              },
+              {
+                "value": "rgate",
+                "label": "ResearchGate"
+              }
+           ]
+         }
+      ]
+    },
+    {
       "field_name": "subtitle",
       "label": "Subtitles",
       "preset": "composite_repeating",
+      "form_snippet" : null,
       "form_blanks": 1,
       "datacite": "titles",
       "subfields": [
@@ -242,7 +302,8 @@
            "required": true,
            "form_attrs": { "size":5, "maxlength":4 },
            "form_placeholder": "YYYY",
-           "datacite": "publicationYear"
+           "datacite": "publicationYear",
+           "default_value": "composite_current_year"
          }
        ]
     },
@@ -321,65 +382,6 @@
       ]
     },
     {
-      "field_name": "maintainer",
-      "label": "Contact Person",
-      "preset": "composite",
-      "required": true,
-      "datacite": "contributors",
-      "subfields":[
-          {
-            "field_name": "name",
-            "label": "Name",
-            "required": true,
-            "form_placeholder": "Joe Bloggs",
-            "datacite": "contributor.contributorName"
-          },
-          {
-            "field_name": "email",
-            "label": "Email",
-            "required": true,
-            "form_placeholder":"eg. john@wsl.ch"
-          },
-          {
-            "field_name": "affiliation",
-            "label": "Affiliation",
-            "form_placeholder":"eg. WSL",
-            "datacite": "contributor.affiliation"
-          },
-          {
-            "field_name": "identifier",
-            "label": "Identifier",
-            "form_placeholder":"eg. 0000-0003-0166-248X",
-            "datacite": "contributor.nameIdentifier"
-          },
-          {
-            "field_name": "identifier_scheme",
-            "label": "Scheme",
-            "required": false,
-            "preset": "select",
-            "datacite": "contributor.nameIdentifier.nameIdentifierScheme",
-            "choices": [
-              {
-                "value": "orcid",
-                "label": "ORCID"
-              },
-              {
-                "value": "isni",
-                "label": "ISNI"
-              },
-              {
-                "value": "rid",
-                "label": "ResearcherID"
-              },
-              {
-                "value": "rgate",
-                "label": "ResearchGate"
-              }
-           ]
-         }
-      ]
-    },
-    {
       "field_name": "license_id",
       "label": "License",
       "form_snippet": "envidat_license.html",
@@ -391,6 +393,8 @@
       "label": "Version",
       "validators": "ignore_missing unicode package_version_validator",
       "form_placeholder": "1.0",
+      "form_snippet":"envidat_text_default.html",
+      "default_value": "1.0",
       "datacite": "version"
     },
     {
@@ -399,7 +403,8 @@
       "form_placeholder": "Dataset",
       "datacite": "resourceType",
       "form_snippet":"envidat_text_default.html",
-      "default_value": "Dataset"
+      "default_value": "Dataset",
+      "hidden": true
     },
     {
       "field_name": "resource_type_general",
@@ -407,6 +412,9 @@
       "preset": "envidat_select",
       "form_include_blank_choice":false,
       "datacite": "resourceType.resourceTypeGeneral",
+      "form_snippet":"envidat_text_default.html",
+      "default_value": "dataset",
+      "hidden": true,
       "choices": [
               {
                 "value": "dataset",
@@ -472,6 +480,9 @@
       "datacite": "language",
       "form_include_blank_choice":false,
       "preset": "envidat_select",
+      "form_snippet":"envidat_text_default.html",
+      "default_value": "en",
+      "hidden": true,
       "choices": [
               {
                 "value": "en",
