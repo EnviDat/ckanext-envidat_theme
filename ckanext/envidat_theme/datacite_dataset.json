@@ -65,7 +65,7 @@
             "field_name": "name",
             "label": "Name",
             "form_placeholder":"eg. John Smith",
-            "help_text": "Full first name and family name",
+            "help_text": "Full first name and family name. For additional authors press the + button.",
             "help_inline": false,
             "required": true,
             "datacite": "creator.creatorName"
