@@ -165,6 +165,14 @@
       "subfields_label": " Contact",
       "subfields":[
           {
+            "field_name": "copy-from-author",
+            "label": "Name",
+            "form_snippet": "envidat_copy_from_author.html",
+            "help_text": "Maintainer from author",
+            "help_inline": true,
+            "form_placeholder": "Author 1"
+          },
+          {
             "field_name": "name",
             "label": "Name",
             "required": true,
