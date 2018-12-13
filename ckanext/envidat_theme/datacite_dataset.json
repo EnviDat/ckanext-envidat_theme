@@ -332,6 +332,7 @@
       "preset": "composite_repeating",
       "form_blanks": 1,
       "datacite": "dates",
+      "required": true,
       "subfields": [
          {
            "field_name": "date_type",
@@ -339,20 +340,8 @@
            "preset": "select",
            "datacite": "date.dateType",
            "required": true,
-           "form_include_blank_choice": true,
+           "form_include_blank_choice": false,
            "choices": [
-             {
-               "value": "accepted",
-               "label": "Accepted"
-             },
-             {
-               "value": "available",
-               "label": "Available"
-             },
-             {
-               "value": "copyrighted",
-               "label": "Copyrighted"
-             },
              {
                "value": "collected",
                "label": "Collected"
@@ -360,22 +349,6 @@
              {
                "value": "created",
                "label": "Created"
-             },
-             {
-               "value": "issued",
-               "label": "Issued"
-             },
-             {
-               "value": "submitted",
-               "label": "Submitted"
-             },
-             {
-               "value": "updated",
-               "label": "Updated"
-             },
-             {
-               "value": "valid",
-               "label": "Valid"
              }
            ]
          },
