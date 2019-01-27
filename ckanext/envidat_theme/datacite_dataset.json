@@ -16,6 +16,7 @@
       "field_name": "name",
       "label": "URL",
       "preset": "dataset_slug",
+      "validators": "not_empty unicode name_validator package_name_validator envidat_shortname_validator",
       "form_placeholder": "eg. my-dataset"
     },
     {
