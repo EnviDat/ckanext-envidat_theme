@@ -7,7 +7,7 @@ StopOnError = df.StopOnError
 def envidat_shortname_validator(key, data, errors, context):
 
     value = data.get(key)
-    if not value or (value) > 80:
+    if not value or len(value) > 80:
         errors[key].append(_('text should be maximum 80 characters long'))
         raise StopOnError
 
