@@ -22,7 +22,7 @@
     {
       "field_name": "doi",
       "label": "DOI",
-      "preset": "datacite_publication_doi_text",
+      "form_snippet":"envidat_text_default.html",
       "form_placeholder": "eg. 10.12345/678",
       "help_text": "For a new DOI contact envidat@wsl.ch",
       "help_inline": false,
