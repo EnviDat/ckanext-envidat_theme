@@ -45,7 +45,7 @@
       "field_name": "related_publications",
       "label": "Related Publications",
       "form_snippet": "markdown.html",
-      "diplay_snippet": null,
+      "display_snippet": null,
       "default_value": " * Iosifescu Enescu, I., Plattner, G. K., Espona Pernas, L., Haas-Artho, D., Bischof, S., Lehning, M., & Steffen, K. (2018). The EnviDat concept for an institutional environmental data portal. Data Science Journal, 17, 28 (17 pp.). [https://doi.org/10.5334/dsj-2018-028](https://doi.org/10.5334/dsj-2018-028).",
       "form_placeholder": " * Iosifescu Enescu, I., Plattner, G. K., Espona Pernas, L., Haas-Artho, D., Bischof, S., Lehning, M., & Steffen, K. (2018). The EnviDat concept for an institutional environmental data portal. Data Science Journal, 17, 28 (17 pp.). [https://doi.org/10.5334/dsj-2018-028](https://doi.org/10.5334/dsj-2018-028)."
     },
