@@ -4,7 +4,7 @@
   {{ super() }}
   {% set citation =  h.envidat_theme_get_citation(c.pkg_dict) %}
   {% if citation %}
-    <b>Citation:</b> 
+    <h3>Citation:</h3> 
     <blockquote>
     <p><i> {{ h.envidat_theme_get_citation(c.pkg_dict)|safe }} </i></p>
     </blockquote>

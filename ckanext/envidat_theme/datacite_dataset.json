@@ -22,7 +22,7 @@
     {
       "field_name": "doi",
       "label": "DOI",
-      "form_snippet":"envidat_text_default.html",
+      "preset": "datacite_publication_doi_text",
       "form_placeholder": "eg. 10.12345/678",
       "help_text": "For a new DOI contact envidat@wsl.ch",
       "help_inline": false,
@@ -40,6 +40,14 @@
       "form_placeholder": "eg. Some useful notes about the data",
       "required": true,
       "datacite": "descriptions.description"
+    },
+    {
+      "field_name": "related_publications",
+      "label": "Related Publications",
+      "form_snippet": "markdown.html",
+      "diplay_snippet": null,
+      "default_value": " * Iosifescu Enescu, I., Plattner, G. K., Espona Pernas, L., Haas-Artho, D., Bischof, S., Lehning, M., & Steffen, K. (2018). The EnviDat concept for an institutional environmental data portal. Data Science Journal, 17, 28 (17 pp.). [https://doi.org/10.5334/dsj-2018-028](https://doi.org/10.5334/dsj-2018-028).",
+      "form_placeholder": " * Iosifescu Enescu, I., Plattner, G. K., Espona Pernas, L., Haas-Artho, D., Bischof, S., Lehning, M., & Steffen, K. (2018). The EnviDat concept for an institutional environmental data portal. Data Science Journal, 17, 28 (17 pp.). [https://doi.org/10.5334/dsj-2018-028](https://doi.org/10.5334/dsj-2018-028)."
     },
     {
       "field_name": "tag_string",
@@ -375,8 +383,15 @@
       ]
     },
     {
+      "field_name": "database_license_id",
+      "label": "Database License",
+      "display_snippet": null,
+      "form_snippet": "envidat_database_license.html",
+      "default_value" : "Open Data Commons Open Database License (ODbL)"
+    },
+    {
       "field_name": "license_id",
-      "label": "License",
+      "label": "Content License",
       "form_snippet": "envidat_license.html",
       "help_text": "License definitions and additional information can be found at https://opendatacommons.org/licenses/odbl/summary/",
       "datacite": "rightsList.rights"
