@@ -387,7 +387,9 @@
       "label": "Database License",
       "display_snippet": null,
       "form_snippet": "envidat_database_license.html",
-      "default_value" : "Open Data Commons Open Database License (ODbL)"
+      "default_value" : "Open Data Commons Open Database License (ODbL)",
+      "help_text": "Default is ODbL which requests to Attribute, Share-Alike and Keep open: https://opendatacommons.org/licenses/odbl/summary/index.html",
+      "help_inline":false
     },
     {
       "field_name": "license_id",
