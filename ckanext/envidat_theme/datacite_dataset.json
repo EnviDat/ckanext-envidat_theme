@@ -22,11 +22,40 @@
     {
       "field_name": "doi",
       "label": "DOI",
-      "form_snippet":"envidat_text_default.html",
+      "preset": "datacite_publication_doi_text",
       "form_placeholder": "eg. 10.12345/678",
-      "help_text": "For a new DOI contact envidat@wsl.ch",
+      "help_text": "A DOI can be requested after saving the dataset (if you do not have one already)",
       "help_inline": false,
       "datacite":"identifier"
+    },
+    {
+      "field_name": "publication_state",
+      "label": "Publication State",
+      "preset": "datacite_publication_select",
+      "form_include_blank_choice": true,
+      "required": false,
+      "choices": [
+              {
+                "value": "reserved",
+                "label": "Reserved"
+              },
+              {
+                "value": "pub_requested",
+                "label": "Publication Requested"
+              },
+              {
+                "value": "pub_pending",
+                "label": "Publication Pending"
+              },
+              {
+                "value": "approved",
+                "label": "Approved"
+              },
+              {
+                "value": "published",
+                "label": "Published"
+              }
+         ]
     },
     {
       "field_name": "owner_org",
