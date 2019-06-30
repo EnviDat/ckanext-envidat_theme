@@ -116,6 +116,20 @@
             "datacite": "creator.affiliation"
           },
           {
+            "field_name": "affiliation_02",
+            "label": "Affiliation 2 ",
+            "form_placeholder":"eg. SLF",
+            "required": false,
+            "datacite": "creator.affiliation"
+          },
+          {
+            "field_name": "affiliation_03",
+            "label": "Affiliation 3 ",
+            "form_placeholder":"eg. ETH",
+            "required": false,
+            "datacite": "creator.affiliation"
+          },
+          {
             "field_name": "email",
             "label": "Email",
             "form_placeholder":"eg. john@wsl.ch",
@@ -413,7 +427,7 @@
     },
     {
       "field_name": "database_license_id",
-      "label": "Database License",
+      "label": "Metadata License",
       "display_snippet": null,
       "form_snippet": "envidat_database_license.html",
       "default_value" : "Open Data Commons Open Database License (ODbL)",
@@ -423,6 +437,7 @@
     {
       "field_name": "license_id",
       "label": "Content License",
+      "form_include_blank_choice": true,
       "form_snippet": "envidat_license.html",
       "help_text": "License definitions and additional information can be found at https://opendatacommons.org/licenses/odbl/summary/",
       "datacite": "rightsList.rights"

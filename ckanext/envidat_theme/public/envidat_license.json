@@ -1,4 +1,17 @@
 [
+ {
+    "domain_content": false,
+    "domain_data": true,
+    "domain_software": false,
+    "family": "",
+    "id": "wsl-data",
+    "maintainer": "WSL",
+    "od_conformance": "not reviewed",
+    "osd_conformance": "not reviewed",
+    "status": "active",
+    "title": "WSL Data License",
+    "url": "https://www.wsl.ch/en/about-wsl/programmes-and-initiatives/envidat.html"
+  },
   {
     "domain_content": false,
     "domain_data": true,
@@ -26,6 +39,19 @@
     "url": "https://creativecommons.org/licenses/by-sa/4.0/"
   },
    {
+    "domain_content": true,
+    "domain_data": true,
+    "domain_software": false,
+    "family": "",
+    "id": "cc-by-nc",
+    "maintainer": "Creative Commons",
+    "od_conformance": "not reviewed",
+    "osd_conformance": "not reviewed",
+    "status": "active",
+    "title": "Creative Commons Attribution-NonCommercial (CC-BY-NC)",
+    "url": "https://creativecommons.org/licenses/by-nc/4.0/"
+  },
+  {
     "domain_content": true,
     "domain_data": false,
     "domain_software": false,

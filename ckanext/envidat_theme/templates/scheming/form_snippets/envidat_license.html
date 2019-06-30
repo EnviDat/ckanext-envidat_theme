@@ -1,6 +1,6 @@
 {% import 'macros/form.html' as form %}
 
-{%- set selection = ['odc-odbl', 'other-at', 'other-nc', 'other-closed', 'other-open'] -%}
+{%- set selection = [ 'wsl-data', 'odc-odbl', 'cc-by-nc', 'other-closed' ] -%}
 
 {%- set options=[] -%}
 {%- if field.get('form_include_blank_choice', false) -%}

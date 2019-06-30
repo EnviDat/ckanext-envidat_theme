@@ -12,10 +12,10 @@
    {{ super() }}
 
      <tr>
-       <th scope="row" class="dataset-label">{{ _("Database  License") }}</th>
+       <th scope="row" class="dataset-label">{{ _("Metadata License") }}</th>
        <td class="dataset-details">
          {% if pkg_dict.database_license_id %}
-             {{ pkg_dict.database_license_id }}
+         <a href="https://opendefinition.org/licenses/odc-odbl" rel="dc:rights">{{ pkg_dict.database_license_id }}</a>
                &nbsp;&nbsp;
                <a href="http://opendefinition.org/okd/" title="{{ _('This dataset satisfies the Open Definition.') }}">
                  <img class="open-data" src="{{ h.url_for_static('/base/images/od_80x15_blue.png') }}" alt="[Open Data]" />
