@@ -29,6 +29,24 @@ def envidat_string_uppercase(key, data, errors, context):
         num += 1
         tag = data.get(('tags', num, 'name'), "")
 
+
+def envidat_minimum_tag_count(key, data, errors, context):
+    """
+      count tags and raise an error if there are less than 5
+    """
+    min_tags = 5
+    # tags to count
+    num = 0
+    tag = data.get(('tags', num, 'name'), "")
+    while tag:
+        num += 1
+        tag = data.get(('tags', num, 'name'), "")
+
+    if num < min_tags:
+        errors[key].append(_('at least ' + str(min_tags) + ' tags'))
+        raise StopOnError
+
+
 # upper or same value if it is not a string
 def _safe_upper(value):
     try:

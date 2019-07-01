@@ -109,27 +109,6 @@
             "datacite": "creator.creatorName"
           },
           {
-            "field_name": "affiliation",
-            "label": "Affiliation",
-            "form_placeholder":"eg. WSL",
-            "required": true,
-            "datacite": "creator.affiliation"
-          },
-          {
-            "field_name": "affiliation_02",
-            "label": "Affiliation 2 ",
-            "form_placeholder":"eg. SLF",
-            "required": false,
-            "datacite": "creator.affiliation"
-          },
-          {
-            "field_name": "affiliation_03",
-            "label": "Affiliation 3 ",
-            "form_placeholder":"eg. ETH",
-            "required": false,
-            "datacite": "creator.affiliation"
-          },
-          {
             "field_name": "email",
             "label": "Email",
             "form_placeholder":"eg. john@wsl.ch",
@@ -172,6 +151,27 @@
               }
            ]
          },
+          {
+            "field_name": "affiliation",
+            "label": "Affiliation",
+            "form_placeholder":"eg. WSL",
+            "required": true,
+            "datacite": "creator.affiliation"
+          },
+          {
+            "field_name": "affiliation_02",
+            "label": "Additional Affiliation ",
+            "form_placeholder":"eg. SLF",
+            "required": false,
+            "datacite": "creator.affiliation"
+          },
+          {
+            "field_name": "affiliation_03",
+            "label": "Additional Affiliation ",
+            "form_placeholder":"eg. ETH",
+            "required": false,
+            "datacite": "creator.affiliation"
+          },
          {
             "field_name": "data_credit",
             "label": "DataCRediT",
@@ -440,7 +440,8 @@
       "form_include_blank_choice": true,
       "form_snippet": "envidat_license.html",
       "help_text": "License definitions and additional information can be found at https://opendatacommons.org/licenses/odbl/summary/",
-      "datacite": "rightsList.rights"
+      "datacite": "rightsList.rights",
+      "required": true
     },
     {
       "field_name": "version",

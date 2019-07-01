@@ -6,19 +6,22 @@
 {%- if field.get('form_include_blank_choice', false) -%}
     {%- do options.append({
         'value': '',
-        'text': ''}) -%}
+        'text': 'Please select one license from the list below...'}) -%}
 {%- endif -%}
 {%- if field.get('sorted_choices', true) -%}
     {%- set licenses = licenses|sort -%}
 {%- endif -%}
-{%- for license_desc, license_id in licenses -%}
-    {%- if license_id or not h.scheming_field_required(field) -%}
-         {%- if license_id in selection -%}
-            {%- do options.append({
-                'value': license_id,
-                'text': license_desc}) -%}
-         {%- endif -%}
-    {%- endif -%}
+
+{%- for selected_license_id in selection -%}
+    {%- for license_desc, license_id in licenses -%}
+        {%- if license_id or not h.scheming_field_required(field) -%}
+            {%- if license_id == selected_license_id -%}
+                {%- do options.append({
+                   'value': license_id,
+                   'text': license_desc}) -%}
+            {%- endif -%}
+        {%- endif -%}
+    {%- endfor -%}
 {%- endfor -%}
 
 {% call form.select(
