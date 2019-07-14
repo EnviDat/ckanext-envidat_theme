@@ -80,11 +80,11 @@
     },
     {
         "field_name": "dora_link",
-        "label": "Dora Link",
+        "label": "Dora IDs",
         "form_snippet": "envidat_text_default.html",
         "display_snippet": null,
-        "form_placeholder":"wsl:18703",
-        "help_text": "Insert the DORA id for the related publication and the citation will be displayed, more info at https://www.dora.lib4ri.ch/ ",
+        "form_placeholder":"wsl:18703 wsl:18753",
+        "help_text": "Insert the DORA ids space-separated for the related publication and the citation will be displayed, more info at https://www.dora.lib4ri.ch/ ",
         "help_inline": false,
         "required": false
     },
@@ -646,16 +646,8 @@
                 "label": "Public"
               },
               {
-                "value": "registered",
-                "label": "Registered Users"
-              },
-              {
-                "value": "any_organization",
-                "label": "Any Organization Members (Trusted Users)"
-              },
-              {
                 "value": "same_organization",
-                "label": "Same Organization Members"
+                "label": "Restricted to Same Organization Members"
               }
            ]
          },

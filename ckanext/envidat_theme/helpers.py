@@ -245,19 +245,23 @@ def envidat_theme_sizeof_fmt(num_text):
     return "%.1f %s" % (num, 'YB')
 
 
-def envidat_get_dora_citation(dora_id):
-    dora_url = "https://www.dora.lib4ri.ch/wsl/islandora/search/json_cit_pids/"
-    if dora_id:
-        citation_url = dora_url + dora_id
-        try:
-            response = urllib.urlopen(citation_url) 
-            data = json.loads(response.read())
-            citation_html = data[dora_id]["citation"]["ACS"]
-            return _markup_links(citation_html)
-        except:
-            return ('DORA link (citation not available): <a href="' + citation_url + '" >' + citation_url + "</a>" )                  
+def envidat_get_dora_citation(dora_id_list):
+    dora_html = "<ul>"
+    if dora_id_list:
+        dora_url = "https://www.dora.lib4ri.ch/wsl/islandora/search/json_cit_pids/"
+        for dora_id in dora_id_list.split(' '):
+            if dora_id:
+                citation_url = dora_url + dora_id
+                try:
+                    response = urllib.urlopen(citation_url) 
+                    data = json.loads(response.read())
+                    citation_html = data[dora_id]["citation"]["ACS"]
+                    dora_html += "<li>" +  _markup_links(citation_html) + "</li>"
+                except:
+                    dora_html += '<li> DORA link (citation not available): <a href="' + citation_url + '" >' + citation_url + "</a> </li>"
+        return dora_html + "</ul>"
     else:
-        return "none"
+        return ""
 
 def _markup_links(text):
     markup_text = []
