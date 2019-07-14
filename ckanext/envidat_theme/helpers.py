@@ -92,7 +92,7 @@ def envidat_theme_get_markup(text):
             start = token.find('//') + len('//')
             end = token.find('/', start)
             tag = token[start:end]
-            markup_text += ['<b><a href="' + token + '">' + tag + '</a></b>']
+            markup_text += ['<b><a href="' + token + '" target="_blank" >' + tag + '</a></b>']
         else:
             markup_text += [token]
     return ' '.join(markup_text)
@@ -269,7 +269,7 @@ def _markup_links(text):
         if token.find('http://')==0 or token.find('https://')==0:
             start = token.find('//') + len('//')
             tag = token[start:]
-            markup_text += ['<a href="' + token + '">' + tag + '</a>']
+            markup_text += ['<a href="' + token + '" target="_blank">' + tag + '</a>']
         else:
             markup_text += [token]
     return ' '.join(markup_text)
