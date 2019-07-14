@@ -79,6 +79,16 @@
       "form_placeholder": " * Iosifescu Enescu, I., Plattner, G. K., Espona Pernas, L., Haas-Artho, D., Bischof, S., Lehning, M., & Steffen, K. (2018). The EnviDat concept for an institutional environmental data portal. Data Science Journal, 17, 28 (17 pp.). [https://doi.org/10.5334/dsj-2018-028](https://doi.org/10.5334/dsj-2018-028)."
     },
     {
+        "field_name": "dora_link",
+        "label": "Dora Link",
+        "form_snippet": "envidat_text_default.html",
+        "display_snippet": null,
+        "form_placeholder":"wsl:18703",
+        "help_text": "Insert the DORA id for the related publication and the citation will be displayed, more info at https://www.dora.lib4ri.ch/ ",
+        "help_inline": false,
+        "required": false
+    },
+    {
       "field_name": "tag_string",
       "label": "Keywords",
       "preset": "tag_string_upper_autocomplete",

@@ -1,7 +1,7 @@
 import json
 import time
 import datetime
-
+import urllib
 import hashlib
 
 import ckan.plugins.toolkit as toolkit
@@ -243,4 +243,30 @@ def envidat_theme_sizeof_fmt(num_text):
             return "%3.2f %s" % (num, unit)
         num /= 1024.0
     return "%.1f %s" % (num, 'YB')
+
+
+def envidat_get_dora_citation(dora_id):
+    dora_url = "https://www.dora.lib4ri.ch/wsl/islandora/search/json_cit_pids/"
+    if dora_id:
+        citation_url = dora_url + dora_id
+        try:
+            response = urllib.urlopen(citation_url) 
+            data = json.loads(response.read())
+            citation_html = data[dora_id]["citation"]["ACS"]
+            return _markup_links(citation_html)
+        except:
+            return ('DORA link (citation not available): <a href="' + citation_url + '" >' + citation_url + "</a>" )                  
+    else:
+        return "none"
+
+def _markup_links(text):
+    markup_text = []
+    for token in text.split(' '):
+        if token.find('http://')==0 or token.find('https://')==0:
+            start = token.find('//') + len('//')
+            tag = token[start:]
+            markup_text += ['<a href="' + token + '">' + tag + '</a>']
+        else:
+            markup_text += [token]
+    return ' '.join(markup_text)
 

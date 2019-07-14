@@ -4,12 +4,16 @@
 
 {% block package_notes %}
   {{ super() }}
-  {% if h.scheming_field_by_name(schema.dataset_fields, 'related_publications') and
-    pkg.related_publications%}
+  {% if (h.scheming_field_by_name(schema.dataset_fields, 'related_publications') and
+    pkg.related_publications) or (h.scheming_field_by_name(schema.dataset_fields, 'dora_link') and
+    pkg.dora_link)%}
     {% set related_publications_field = h.scheming_field_by_name(schema.dataset_fields, 'related_publications') %}
     <h3>{{ related_publications_field.label }}:</h3>
     <div class="notes embedded-content">
       {{ h.render_markdown(pkg.related_publications) }}
+    </div>
+    <div class="notes embedded-content">
+      {{ h.envidat_get_dora_citation(pkg.dora_link) | safe }}
     </div>
   {% endif %}
 {% endblock %}
