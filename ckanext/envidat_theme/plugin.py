@@ -3,7 +3,7 @@ from ckan.lib.plugins import DefaultTranslation
 
 import ckan.plugins.toolkit as toolkit
 
-from ckanext.envidat_theme import helpers, validation, logic
+from ckanext.envidat_theme import helpers, validation, logic, action
 
 class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
@@ -11,6 +11,7 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.ITranslation)
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IAuthFunctions)
+    plugins.implements(plugins.IActions)
 
     # IConfigurer
     def update_config(self, config_):
@@ -35,6 +36,10 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
         return { 'envidat_string_uppercase': validation.envidat_string_uppercase,
                  'envidat_shortname_validator': validation.envidat_shortname_validator,
                  'envidat_minimum_tag_count': validation.envidat_minimum_tag_count }
+
+    # IActions
+    def get_actions(self):
+        return {'envidat_context_user_show': action.context_user_show }
 
     # IAuthFunctions
     # The portal admin can always update
