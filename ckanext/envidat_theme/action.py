@@ -9,8 +9,10 @@ log = getLogger(__name__)
 @side_effect_free
 def context_user_show(context, data_dict):
     user = envidat_get_user_from_context(context)
-    return {'user': user}
-
+    if user:
+        return {'user': user}
+    else:
+        return {}
 
 def envidat_get_user_from_context(context):
     auth_user_obj = context.get('auth_user_obj', None)
