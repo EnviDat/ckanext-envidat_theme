@@ -263,6 +263,12 @@ def envidat_get_dora_citation(dora_id_list):
     else:
         return ""
 
+def envidat_get_funding(funding):
+    if funding:
+        data = json.loads(funding)
+        return data
+    return None
+
 def _markup_links(text):
     markup_text = []
     for token in text.split(' '):

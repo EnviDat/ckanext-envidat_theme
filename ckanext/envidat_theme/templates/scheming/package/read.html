@@ -4,6 +4,22 @@
 
 {% block package_notes %}
   {{ super() }}
+
+  {% set funding = h.envidat_get_funding(pkg.funding) %}
+  {% if funding %}
+      <h4> Acknowledgements:</h4> 
+      <div class="notes embedded-content">
+		The following institutions contributed to finance this dataset:
+      <ul>
+      {%- for funder in funding -%}
+        <li>  {{ funder.institution }} 
+            {% if funder.grant_number %}  (Grant/Award. No. {{ funder.grant_number }})  {% endif %}
+        </li>
+      {%- endfor -%}
+      </ul>
+    </div>
+  {% endif %}
+
   {% if (h.scheming_field_by_name(schema.dataset_fields, 'related_publications') and
     pkg.related_publications) or (h.scheming_field_by_name(schema.dataset_fields, 'dora_link') and
     pkg.dora_link)%}

@@ -74,7 +74,7 @@
       "required": true,
       "datacite": "descriptions.description"
     },
-{
+    {
       "field_name": "funding",
       "label": "Funding Information",
       "preset": "composite_repeating",
@@ -82,6 +82,7 @@
       "help_text": "Information about the financial support for obtaining this dataset",
       "help_inline": false,
       "required": false,
+      "display_snippet": null,
       "datacite":"fundingReferences",
       "subfields_label": " Funder no.",
       "subfields": [
@@ -100,7 +101,7 @@
             "form_placeholder":"eg. GBMF3859",
             "help_text": "Code assigned by the funder to a sponsored award (grant)",
             "help_inline": false,
-            "required": true,
+            "required": false,
             "datacite": "fundingReference.awardNumber"
           }
         ]
