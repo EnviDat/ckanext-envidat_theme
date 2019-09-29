@@ -8,15 +8,19 @@
     {
       "field_name": "title",
       "label": "Title",
-      "preset": "title",
+      "validators": "if_empty_same_as(name) unicode",
+      "form_snippet": "datacite_publication_title.html",
+      "form_attrs": {
+          "data-module": "slug-preview-target"
+        },
       "form_placeholder": "eg. A descriptive title",
       "datacite":"titles.title"
     },
     {
       "field_name": "name",
       "label": "URL",
-      "preset": "dataset_slug",
       "validators": "not_empty unicode name_validator package_name_validator envidat_shortname_validator",
+      "form_snippet": "datacite_publication_url.html",
       "form_placeholder": "eg. my-dataset"
     },
     {
@@ -69,6 +73,37 @@
       "form_placeholder": "eg. Some useful notes about the data",
       "required": true,
       "datacite": "descriptions.description"
+    },
+{
+      "field_name": "funding",
+      "label": "Funding Information",
+      "preset": "composite_repeating",
+      "form_blanks": 1,
+      "help_text": "Information about the financial support for obtaining this dataset",
+      "help_inline": false,
+      "required": false,
+      "datacite":"fundingReferences",
+      "subfields_label": " Funder no.",
+      "subfields": [
+          {
+            "field_name": "institution",
+            "label": "Name",
+            "form_placeholder":"eg. ETH",
+            "help_text": "Funder institution or organization name",
+            "help_inline": false,
+            "required": true,
+            "datacite": "fundingReference.funderName"
+          },
+          {
+            "field_name": "grant_number",
+            "label": "Grant Number",
+            "form_placeholder":"eg. GBMF3859",
+            "help_text": "Code assigned by the funder to a sponsored award (grant)",
+            "help_inline": false,
+            "required": true,
+            "datacite": "fundingReference.awardNumber"
+          }
+        ]
     },
     {
       "field_name": "related_publications",
