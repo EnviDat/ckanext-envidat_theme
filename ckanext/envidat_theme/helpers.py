@@ -147,7 +147,7 @@ def envidat_theme_get_citation(package_data_dict):
     citation = u''
 
     # creators
-    creators = _get_from_json_dict_list(package_data_dict.get('author', ""), 'name')
+    creators = _get_from_json_dict_list(package_data_dict.get('author', ""), ['given_name', 'name'])
     if creators:
         citation += creators
 
@@ -186,16 +186,20 @@ def _get_from_json_dict (text, field):
         return ""
     return _safe_str(value).strip()
 
-def _get_from_json_dict_list (text, field, sep='; '):
+def _get_from_json_dict_list (text, fields, sep='; '):
     try:
         json_list = json.loads(text)
         if type(json_list) is not list:
             json_list = [ json_list ]
         value_list = []
         for item in json_list:
-            value = _safe_str(item.get(field, "")).strip()
-            if value:
-                value_list += [ value ]
+            item_values = []
+            for field in fields:
+                value = _safe_str(item.get(field, "")).strip()
+                if value:
+                    item_values += [ value ]
+            if item_values:
+                value_list += [ ' '.join(item_values)]
     except:
         return ""
     return (sep.join(value_list))

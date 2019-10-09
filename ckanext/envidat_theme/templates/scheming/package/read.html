@@ -7,13 +7,13 @@
 
   {% set funding = h.envidat_get_funding(pkg.funding) %}
   {% if funding %}
-      <h4> Acknowledgements:</h4> 
+      <h4> Funding Information:</h4> 
       <div class="notes embedded-content">
-		The following institutions contributed to finance this dataset:
+		This work was supported by:
       <ul>
       {%- for funder in funding -%}
         <li>  {{ funder.institution }} 
-            {% if funder.grant_number %}  (Grant/Award. No. {{ funder.grant_number }})  {% endif %}
+            {% if funder.grant_number %}  (Grant/Award: {{ funder.grant_number }})  {% endif %}
         </li>
       {%- endfor -%}
       </ul>
