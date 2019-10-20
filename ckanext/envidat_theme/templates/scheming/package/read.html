@@ -13,6 +13,7 @@
       <ul>
       {%- for funder in funding -%}
         <li>  {{ funder.institution }} 
+            {% if funder.institution_url %}  <a href="{{funder.institution_url }}" target="_blank"> (link) </a> {% endif %}
             {% if funder.grant_number %}  (Grant/Award: {{ funder.grant_number }})  {% endif %}
         </li>
       {%- endfor -%}

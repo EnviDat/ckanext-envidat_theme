@@ -95,6 +95,14 @@
             "datacite": "fundingReference.funderName"
           },
           {
+            "field_name": "institution_url",
+            "label": "Link to Funding Agency",
+            "form_placeholder":"eg. http://p3.snf.ch/project-155999",
+            "help_text": "Funding agency URL",
+            "help_inline": false,
+            "required": false
+          },
+          {
             "field_name": "grant_number",
             "label": "Grant Number",
             "form_placeholder":"eg. GBMF3859",
