@@ -1,34 +1,6 @@
 {% ckan_extends %}
 
 
-  {% block root %}
-  {% if h.current_url() == "/" %}
-  <!DOCTYPE HTML>
-  <html lang="en-US">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="0; URL='https://www.envidat.ch/ui'" />
-        <script type="text/javascript">
-            window.location.href = "https://www.envidat.ch/ui";
-        </script>
-        <title>Page Redirection</title>
-        <meta name="h_current_url" content="{{ h.current_url() }}" />
-    </head>
-    <body>
-        <!-- Note: don't tell people to `click` the link, just tell them that it is a link. -->
-        If you are not redirected automatically, follow this <a href="https://www.envidat.ch/ui">link to new UI</a>.
-    </body>
-  </html>
-  {% else %}
-      {{ super() }}
-  {% endif %}
-  {% endblock %}
-
-  {% block meta %}
-      {{ super() }}
-      <meta name="h_current_url" content="{{ h.current_url() }}" />
-  {% endblock %}
-
   {% block styles %}
     {{ super() }}
     <link rel="stylesheet" href="/envidat_theme.css" />
