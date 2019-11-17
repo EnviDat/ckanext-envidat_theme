@@ -237,16 +237,23 @@ def envidat_theme_get_datamanager_user(username, organization_dict):
     return datamanager_user
 
 
-def envidat_theme_sizeof_fmt(num_text):
-    try:
-        num = float(num_text)
-    except:
-        return (str(num_text) + " bytes")
-    for unit in ['bytes','KB','MB','GB','TB','PB','EB','ZB']:
-        if abs(num) < 1024.0:
-            return "%3.2f %s" % (num, unit)
-        num /= 1024.0
-    return "%.1f %s" % (num, 'YB')
+def envidat_theme_sizeof_fmt(num_text, resource_size=None):
+    if num_text:
+        try:
+            num = float(num_text)
+        except:
+            return (str(num_text) + " bytes")
+        for unit in ['bytes','KB','MB','GB','TB','PB','EB','ZB']:
+            if abs(num) < 1024.0:
+                return "%3.2f %s" % (num, unit)
+            num /= 1024.0
+        return "%.1f %s" % (num, 'YB')
+    else:
+        try:
+            resource_size_obj = json.loads(resource_size)
+            return resource_size_obj.get('size_value' , '0') + ' ' + resource_size_obj.get('size_unit' , 'KB').upper() 
+        except:
+            return (str(num_text) + " bytes")
 
 
 def envidat_get_dora_citation(dora_id_list):

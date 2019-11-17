@@ -675,6 +675,45 @@
       "datacite": "formats.format"
     },
     {
+      "field_name": "resource_size",
+      "label": "Size",
+      "help_text": "Only necessary for linked resources",
+      "help_inline": true,
+      "preset": "composite",
+      "display_snippet": null,
+      "subfields": [
+        {
+         "field_name": "size_value",
+         "label": "Size"
+        },
+        {
+          "field_name": "size_units",
+          "label": "Unit",
+          "form_include_blank_choice": false,
+          "preset": "select",
+          "default_value": "kb",
+          "choices": [
+                  {
+                    "value": "kb",
+                    "label": "KB"
+                  },
+                  {
+                    "value": "mb",
+                    "label": "MB"
+                  },
+                  {
+                    "value": "gb",
+                    "label": "GB"
+                  },
+                  {
+                    "value": "tb",
+                    "label": "TB"
+                  }
+             ]
+          }
+      ]
+    },
+    {
       "field_name": "doi",
       "label": "DOI",
       "form_placeholder": "eg. 10.12345/678",
