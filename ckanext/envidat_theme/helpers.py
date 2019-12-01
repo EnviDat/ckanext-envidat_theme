@@ -4,6 +4,8 @@ import datetime
 import urllib
 import hashlib
 
+
+import ckan.lib.helpers as h
 import ckan.plugins.toolkit as toolkit
 
 from ckanext.hierarchy import helpers
@@ -256,23 +258,50 @@ def envidat_theme_sizeof_fmt(num_text, resource_size=None):
             return (str(num_text) + " bytes")
 
 
+def envidat_get_related_citations(related_publications):
+    related_publications_html = h.render_markdown(related_publications)
+
+    edited_html = []
+    for line in related_publications_html.split('\n'):
+        edited_line = line
+        if line.startswith('<li>') and line.endswith('</li>'):
+            line_contents = line[4:-5].strip().lower()
+            dora_citation = None
+            if line_contents.startswith('wsl:') or line_contents.startswith('psi:') or \
+               line_contents.startswith('eawag:')or line_contents.startswith('empa:') :
+                dora_citation = _get_dora_id_citation(line_contents)
+            elif line_contents.startswith('<a href="https://www.dora.lib4ri.ch'):
+                url = line_contents.split('"')[1]
+                url_split = url.rsplit('/', 1)
+                dora_id = url_split[1].replace('%3a', ':')
+                dora_citation = _get_dora_id_citation(dora_id)
+            if dora_citation:
+                edited_line= dora_citation
+        edited_html += [edited_line]
+    return '\n'.join(edited_html)
+
 def envidat_get_dora_citation(dora_id_list):
     dora_html = "<ul>"
     if dora_id_list:
-        dora_url = "https://www.dora.lib4ri.ch/wsl/islandora/search/json_cit_pids/"
         for dora_id in dora_id_list.split(' '):
             if dora_id:
-                citation_url = dora_url + dora_id
-                try:
-                    response = urllib.urlopen(citation_url) 
-                    data = json.loads(response.read())
-                    citation_html = data[dora_id]["citation"]["ACS"]
-                    dora_html += "<li>" +  _markup_links(citation_html) + "</li>"
-                except:
-                    dora_html += '<li> DORA link (citation not available): <a href="' + citation_url + '" >' + citation_url + "</a> </li>"
+                dora_html += _get_dora_id_citation(dora_id)
         return dora_html + "</ul>"
     else:
         return ""
+
+def _get_dora_id_citation(dora_id):
+    dora_url = "https://www.dora.lib4ri.ch/wsl/islandora/search/json_cit_pids/"
+    citation_url = dora_url + dora_id
+    try:
+        response = urllib.urlopen(citation_url) 
+        data = json.loads(response.read())
+        citation_html = data[dora_id]["citation"]["ACS"]
+        dora_html = "<li>" +  _markup_links(citation_html) + "</li>"
+    except:
+        logger.warn(u"Couldn't retrieve DORA citation for '{0}'".format(dora_id))
+        dora_html = ''
+    return dora_html
 
 def envidat_get_funding(funding):
     if funding:

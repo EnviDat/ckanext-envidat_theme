@@ -27,7 +27,7 @@
     {% set related_publications_field = h.scheming_field_by_name(schema.dataset_fields, 'related_publications') %}
     <h3>{{ related_publications_field.label }}:</h3>
     <div class="notes embedded-content">
-      {{ h.render_markdown(pkg.related_publications) }}
+      {{ h.envidat_get_related_citations(pkg.related_publications) | safe  }}
     </div>
     <div class="notes embedded-content">
       {{ h.envidat_get_dora_citation(pkg.dora_link) | safe }}
