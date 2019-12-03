@@ -80,7 +80,7 @@
       "form_blanks": 1,
       "help_text": "Information about the financial support for obtaining this dataset",
       "help_inline": false,
-      "required": false,
+      "required": true,
       "display_snippet": null,
       "datacite":"fundingReferences",
       "subfields_label": " Funder no.",
