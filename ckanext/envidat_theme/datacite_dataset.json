@@ -124,7 +124,7 @@
     {
         "field_name": "dora_link",
         "label": "Dora IDs",
-        "form_snippet": "envidat_text_default.html",
+        "form_snippet": null,
         "display_snippet": null,
         "form_placeholder":"wsl:18703 wsl:18753",
         "help_text": "Insert the DORA ids space-separated for the related publication and the citation will be displayed, more info at https://www.dora.lib4ri.ch/ ",
