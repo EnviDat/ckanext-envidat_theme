@@ -257,9 +257,58 @@ def envidat_theme_sizeof_fmt(num_text, resource_size=None):
         except:
             return (str(num_text) + " bytes")
 
+def envidat_get_related_datasets(related_datasets):
+    related_datasets_html = h.render_markdown(related_datasets)
+
+    edited_html = []
+    for line in related_datasets_html.split('\n'):
+        edited_line = line
+        if (line.startswith('<li>') and line.endswith('</li>')) or\
+           (line.startswith('<p>') and line.endswith('</p>')):
+            line_contents = line[3:-4].strip().lower()
+            html_tags = ['<p>','</p>']
+            if line.startswith('<li>'):
+                html_tags = ['<li>','</li>']
+                line_contents = line_contents[1:-1].strip()
+
+            envidat_id = None
+            envidat_citation = None
+
+            package_list = []
+            try:
+                package_list = toolkit.get_action('package_list')(
+                                context={'ignore_auth': False},
+                                data_dict={})
+            except:
+                logger.error('envidat_get_related_datasets: could not retrieve package list from API')
+
+            if line_contents in package_list:
+                envidat_id = line_contents
+            elif line_contents.startswith('<a href="https://www.envidat.ch'):
+                url = line_contents.split('"')[1]
+                url_split = url.rsplit('/', 1)
+                envidat_id = url_split[1].replace('%3a', ':')
+
+            if envidat_id:
+                try:
+                    envidat_dataset = toolkit.get_action('package_show')(
+                                            context={'ignore_auth': False},
+                                            data_dict={'id':envidat_id})
+                    envidat_citation = envidat_theme_get_citation(envidat_dataset)
+                except:
+                    logger.error('envidat_get_related_datasets: could not retrieve package details from API')
+
+
+                if envidat_citation:
+                    edited_line = html_tags[0] + envidat_citation + html_tags[1] 
+
+        edited_html += [edited_line]
+    return '\n'.join(edited_html)
+
+
 def envidat_get_related_citations(related_publications):
     related_publications_html = h.render_markdown(related_publications)
-    
+
     edited_html = []
     for line in related_publications_html.split('\n'):
         edited_line = line

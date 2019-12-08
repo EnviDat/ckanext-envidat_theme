@@ -21,16 +21,21 @@
     </div>
   {% endif %}
 
-  {% if (h.scheming_field_by_name(schema.dataset_fields, 'related_publications') and
-    pkg.related_publications) or (h.scheming_field_by_name(schema.dataset_fields, 'dora_link') and
-    pkg.dora_link)%}
+
+  {% if (h.scheming_field_by_name(schema.dataset_fields, 'related_datasets') and
+    pkg.related_datasets) %}
+    {% set related_datasets_field = h.scheming_field_by_name(schema.dataset_fields, 'related_datasets') %}
+    <h4>{{ related_datasets_field.label }}</h4>
+    <div class="notes embedded-content">
+      {{ h.envidat_get_related_datasets(pkg.related_datasets) | safe  }}
+    </div>
+  {% endif %}
+  
+  {% if (h.scheming_field_by_name(schema.dataset_fields, 'related_publications') and pkg.related_publications) %}
     {% set related_publications_field = h.scheming_field_by_name(schema.dataset_fields, 'related_publications') %}
-    <h3>{{ related_publications_field.label }}:</h3>
+    <h4>{{ related_publications_field.label }}</h4>
     <div class="notes embedded-content">
       {{ h.envidat_get_related_citations(pkg.related_publications) | safe  }}
-    </div>
-    <div class="notes embedded-content">
-      {{ h.envidat_get_dora_citation(pkg.dora_link) | safe }}
     </div>
   {% endif %}
 {% endblock %}

@@ -114,6 +114,14 @@
         ]
     },
     {
+      "field_name": "related_datasets",
+      "label": "Related Datasets",
+      "form_snippet": "markdown.html",
+      "display_snippet": null,
+      "help_text": "Please cite datasets, one per line starting with a '*'. The use of EnviDat IDs (e.g. dataset-for-ogrs-2018-publication) or EnviDat links is recommended.",
+      "form_placeholder": " * dataset-for-ogrs-2018-publication\n * https://www.envidat.ch/#/metadata/dataset-for-ogrs-2018-publication\n * Marielle Fraefel (2018). Dataset for OGRS 2018 publication. WSL. [doi: 10.16904/envidat.49](https://doi.org/10.16904/envidat.49)"
+    },
+    {
       "field_name": "related_publications",
       "label": "Related Publications",
       "form_snippet": "markdown.html",
