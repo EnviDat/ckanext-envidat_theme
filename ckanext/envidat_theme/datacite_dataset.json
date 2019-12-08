@@ -118,18 +118,8 @@
       "label": "Related Publications",
       "form_snippet": "markdown.html",
       "display_snippet": null,
-      "default_value": " * Iosifescu Enescu, I., Plattner, G. K., Espona Pernas, L., Haas-Artho, D., Bischof, S., Lehning, M., & Steffen, K. (2018). The EnviDat concept for an institutional environmental data portal. Data Science Journal, 17, 28 (17 pp.). [https://doi.org/10.5334/dsj-2018-028](https://doi.org/10.5334/dsj-2018-028).",
-      "form_placeholder": " * Iosifescu Enescu, I., Plattner, G. K., Espona Pernas, L., Haas-Artho, D., Bischof, S., Lehning, M., & Steffen, K. (2018). The EnviDat concept for an institutional environmental data portal. Data Science Journal, 17, 28 (17 pp.). [https://doi.org/10.5334/dsj-2018-028](https://doi.org/10.5334/dsj-2018-028)."
-    },
-    {
-        "field_name": "dora_link",
-        "label": "Dora IDs",
-        "form_snippet": null,
-        "display_snippet": null,
-        "form_placeholder":"wsl:18703 wsl:18753",
-        "help_text": "Insert the DORA ids space-separated for the related publication and the citation will be displayed, more info at https://www.dora.lib4ri.ch/ ",
-        "help_inline": false,
-        "required": false
+      "help_text": "Please cite publications, one per line starting with a '*'. The use of DORA IDs (e.g. wsl:18753) or DORA links is recommended.",
+      "form_placeholder": " * wsl:18753\n * https://www.dora.lib4ri.ch/wsl/islandora/object/wsl:18753\n * Iosifescu Enescu, I.; Fraefel, M.; Plattner, G. K.; Espona-Pernas, L.; Haas-Artho, D.; Lehning, M.; Steffen, K. Fostering open science at WSL with the EnviDat Environmental Data Portal. Presented at the 5th Open Source Geospatial Research and Education Symposium, Lugano, October 9-11, 2018; OGRS; p (7 pp.). [doi.org/10.7287/peerj.preprints.27211v1](https://doi.org/10.7287/peerj.preprints.27211v1)"
     },
     {
       "field_name": "tag_string",
