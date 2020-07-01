@@ -528,65 +528,21 @@
       "preset": "envidat_select",
       "form_include_blank_choice":false,
       "datacite": "resourceType.resourceTypeGeneral",
-      "form_snippet":"envidat_text_default.html",
+      "help_text": "Select <i>DataPaper</i> if the resources correspond to publications, <i>Software</i> for scripts or programs or <i>Dataset</i> for mixed data, text and software resources",
       "default_value": "dataset",
-      "hidden": true,
+      "hidden": false,
       "choices": [
               {
                 "value": "dataset",
                 "label": "Dataset"
               },
               {
-                "value": "audiovisual",
-                "label": "Audiovisual"
+                "value": "datapaper",
+                "label": "DataPaper"
               },
-              {
-                "value": "collection",
-                "label": "Collection"
-              },
-              {
-                "value": "event",
-                "label": "Event"
-              },
-              {
-                "value": "image",
-                "label": "Image"
-              },
-              {
-                "value": "interactive_resource",
-                "label": "Interactive Resource"
-              },
-              {
-                "value": "model",
-                "label": "Model"
-              },
-              {
-                "value": "physical_object",
-                "label": "Physical Object"
-              },
-              {
-                "value": "service",
-                "label": "Service"
-              },
-              {
+               {
                 "value": "software",
                 "label": "Software"
-              },
-              {
-                "value": "sound",
-                "label": "Sound"
-              },
-              {
-                "value": "text",
-                "label": "Text"
-              },
-              {
-                "value": "workflow",
-                "label": "Workflow"
-              },
-              {
-                "value": "other",
-                "label": "Other"
               }
          ]
     },

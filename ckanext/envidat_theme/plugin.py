@@ -5,6 +5,7 @@ import ckan.plugins.toolkit as toolkit
 
 from ckanext.envidat_theme import helpers, validation, logic, action
 
+
 class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers, inherit=True)
@@ -22,28 +23,27 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     # ITemplateHelpers
     def get_helpers(self):
         return {'envidat_theme_get_children_packages': helpers.envidat_theme_get_children_packages,
-                 'envidat_theme_get_citation': helpers.envidat_theme_get_citation,
-                 'envidat_theme_get_datamanager_choices': helpers.envidat_theme_get_datamanager_choices,
-                 'envidat_theme_get_datamanager_user': helpers.envidat_theme_get_datamanager_user,
-                 'envidat_theme_set_default': helpers.envidat_theme_set_default,
-                 'envidat_theme_get_markup': helpers.envidat_theme_get_markup,
-                 'envidat_theme_get_access_url': helpers.envidat_theme_get_access_url,
-                 'envidat_theme_sizeof_fmt': helpers.envidat_theme_sizeof_fmt,
-                 'envidat_get_dora_citation': helpers.envidat_get_dora_citation,
-                 'envidat_get_related_datasets': helpers.envidat_get_related_datasets,
-                 'envidat_get_related_citations': helpers.envidat_get_related_citations,
-                 'envidat_get_funding': helpers.envidat_get_funding }
-
+                'envidat_theme_get_citation': helpers.envidat_theme_get_citation,
+                'envidat_theme_get_datamanager_choices': helpers.envidat_theme_get_datamanager_choices,
+                'envidat_theme_get_datamanager_user': helpers.envidat_theme_get_datamanager_user,
+                'envidat_theme_set_default': helpers.envidat_theme_set_default,
+                'envidat_theme_get_markup': helpers.envidat_theme_get_markup,
+                'envidat_theme_get_access_url': helpers.envidat_theme_get_access_url,
+                'envidat_theme_sizeof_fmt': helpers.envidat_theme_sizeof_fmt,
+                'envidat_get_dora_citation': helpers.envidat_get_dora_citation,
+                'envidat_get_related_datasets': helpers.envidat_get_related_datasets,
+                'envidat_get_related_citations': helpers.envidat_get_related_citations,
+                'envidat_get_funding': helpers.envidat_get_funding}
 
     # IValidators
     def get_validators(self):
-        return { 'envidat_string_uppercase': validation.envidat_string_uppercase,
-                 'envidat_shortname_validator': validation.envidat_shortname_validator,
-                 'envidat_minimum_tag_count': validation.envidat_minimum_tag_count }
+        return {'envidat_string_uppercase': validation.envidat_string_uppercase,
+                'envidat_shortname_validator': validation.envidat_shortname_validator,
+                'envidat_minimum_tag_count': validation.envidat_minimum_tag_count}
 
     # IActions
     def get_actions(self):
-        return {'envidat_context_user_show': action.context_user_show }
+        return {'envidat_context_user_show': action.context_user_show}
 
     # IAuthFunctions
     # The portal admin can always update
@@ -51,4 +51,3 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     # Organization admins can edit all datasets in their organization
     def get_auth_functions(self):
         return {'package_update': logic.envidat_theme_package_update}
-
