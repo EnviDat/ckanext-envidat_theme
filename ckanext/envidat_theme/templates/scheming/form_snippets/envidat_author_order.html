@@ -1,0 +1,11 @@
+{% resource 'envidat_theme/envidat-author-order.js' %}
+
+<div class="form-group mediunput" data-module="envidat-author-order">
+  	<div class="controls envidat-author-order-controls">
+		<label class="control-label" for="author-{{ subfield_index }}-order">Order Author no. {{ subfield_index }}</label>
+    	<select id="author-{{ subfield_index }}-order" name="author-{{ subfield_index }}-order" disabled="true">
+  			<option value="{{ subfield_index }}" selected=""> {{ subfield_index }} </option>
+  		</select>
+  	</div>
+</div>
+

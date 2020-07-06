@@ -322,10 +322,8 @@ def envidat_get_related_citations(related_publications):
             dora_citation = None
             if line_contents.startswith('wsl:') or line_contents.startswith('psi:') or \
                line_contents.startswith('eawag:')or line_contents.startswith('empa:') :
-                logger.debug("DORA id found")
                 dora_citation = _get_dora_id_citation(line_contents, html_tags)
             elif line_contents.startswith('<a href="https://www.dora.lib4ri.ch'):
-                logger.debug("DORA url found")
                 url = line_contents.split('"')[1]
                 url_split = url.rsplit('/', 1)
                 dora_id = url_split[1].replace('%3a', ':')
@@ -334,7 +332,6 @@ def envidat_get_related_citations(related_publications):
                 edited_line= dora_citation
 
         edited_html += [edited_line]
-    logger.debug(edited_html)
     return '\n'.join(edited_html)
 
 

@@ -1,4 +1,9 @@
 from ckantoolkit import _
+import json
+from ckanext.scheming.validation import scheming_validator
+
+import logging
+logger = logging.getLogger(__name__)
 
 import ckan.lib.navl.dictization_functions as df
 StopOnError = df.StopOnError
@@ -46,11 +51,31 @@ def envidat_minimum_tag_count(key, data, errors, context):
         errors[key].append(_('at least ' + str(min_tags) + ' tags'))
         raise StopOnError
 
+@scheming_validator
+def envidat_reorder(field, schema):
+
+    def validator(key, data, errors, context):
+        """
+          reorder sub elements
+        """
+
+        try:
+            field_data = json.loads(data[key])
+            sorted_list = sorted(field_data, key=lambda k: k.get('order', len(field_data)))
+            for element in sorted_list:
+                element.pop('order', 0)
+            data[key] = json.dumps(sorted_list)
+
+        except ValueError as e:
+            logger.error("Could not reorder field {0}, exception raised {1}".format(key, e))
+            return
+    return validator
+
 
 # upper or same value if it is not a string
 def _safe_upper(value):
     try:
-        return(value.upper())
+        return value.upper()
     except:
         return value
 

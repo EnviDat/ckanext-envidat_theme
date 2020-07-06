@@ -39,7 +39,8 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     def get_validators(self):
         return {'envidat_string_uppercase': validation.envidat_string_uppercase,
                 'envidat_shortname_validator': validation.envidat_shortname_validator,
-                'envidat_minimum_tag_count': validation.envidat_minimum_tag_count}
+                'envidat_minimum_tag_count': validation.envidat_minimum_tag_count,
+                'envidat_reorder': validation.envidat_reorder}
 
     # IActions
     def get_actions(self):
