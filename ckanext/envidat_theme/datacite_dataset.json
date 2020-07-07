@@ -537,11 +537,12 @@
       "label": "General Type",
       "preset": "envidat_select",
       "form_include_blank_choice":false,
+      "required": true,
       "datacite": "resourceType.resourceTypeGeneral",
-      "help_text": "Select <i>DataPaper</i> if the resources correspond to publications, <i>Software</i> for scripts or programs or <i>Dataset</i> for mixed data, text and software resources",
+      "help_text": "Select depending on the attached data resources:<ul><li><i>DataPaper</i> if they correspond to publications</li><li><i>Software</i> for scripts or programs</li><li><i>Dataset</i> for mixed data, text and software resources (default)</li></ul>",
       "default_value": "dataset",
       "hidden": false,
-      "choices": [
+      "choices":[
               {
                 "value": "dataset",
                 "label": "Dataset"
