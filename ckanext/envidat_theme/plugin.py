@@ -40,7 +40,8 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
         return {'envidat_string_uppercase': validation.envidat_string_uppercase,
                 'envidat_shortname_validator': validation.envidat_shortname_validator,
                 'envidat_minimum_tag_count': validation.envidat_minimum_tag_count,
-                'envidat_reorder': validation.envidat_reorder}
+                'envidat_reorder': validation.envidat_reorder,
+                'envidat_copy_type_general': validation.envidat_copy_type_general}
 
     # IActions
     def get_actions(self):

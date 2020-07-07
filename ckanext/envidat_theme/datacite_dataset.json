@@ -530,6 +530,7 @@
       "datacite": "resourceType",
       "form_snippet":"envidat_text_default.html",
       "default_value": "Dataset",
+      "validators": "envidat_copy_type_general",
       "hidden": true
     },
     {

@@ -3,18 +3,20 @@ import json
 from ckanext.scheming.validation import scheming_validator
 
 import logging
+
 logger = logging.getLogger(__name__)
 
 import ckan.lib.navl.dictization_functions as df
+
 StopOnError = df.StopOnError
 
 
 def envidat_shortname_validator(key, data, errors, context):
-
     value = data.get(key)
     if not value or len(value) > 80:
         errors[key].append(_('text should be maximum 80 characters long'))
         raise StopOnError
+
 
 def envidat_string_uppercase(key, data, errors, context):
     """
@@ -51,9 +53,9 @@ def envidat_minimum_tag_count(key, data, errors, context):
         errors[key].append(_('at least ' + str(min_tags) + ' tags'))
         raise StopOnError
 
+
 @scheming_validator
 def envidat_reorder(field, schema):
-
     def validator(key, data, errors, context):
         """
           reorder sub elements
@@ -69,6 +71,18 @@ def envidat_reorder(field, schema):
         except ValueError as e:
             logger.error("Could not reorder field {0}, exception raised {1}".format(key, e))
             return
+
+    return validator
+
+
+@scheming_validator
+def envidat_copy_type_general(field, schema):
+    def validator(key, data, errors, context):
+        """
+          copy type general
+        """
+        data[key] = data.get((u'resource_type_general',), data[key])
+
     return validator
 
 
@@ -78,4 +92,3 @@ def _safe_upper(value):
         return value.upper()
     except:
         return value
-
