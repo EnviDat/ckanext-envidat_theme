@@ -18,7 +18,7 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
-        toolkit.add_resource('fanstatic', 'envidat_theme')
+        toolkit.add_resource('assets', 'envidat_theme')
 
     # ITemplateHelpers
     def get_helpers(self):

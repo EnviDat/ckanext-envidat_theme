@@ -76,7 +76,7 @@ body .hero {
 [role=main],
   .main {
     padding-top: 10px;
-    background: #eeeeee url("noisy_pattern.png");
+    background: white;
   }
 
 /* Change the colors of the "Search Your Data" box. */

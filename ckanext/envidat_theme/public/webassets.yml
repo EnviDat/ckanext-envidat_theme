@@ -1,0 +1,17 @@
+envidat-author-order_js:
+  filter: rjsmin
+  output: envidat_theme/%(version)s_envidat-author-order.js
+  contents:
+    - js/envidat-author-order.js
+  extra:
+    preload:
+      - base/main
+
+envidat-copy-from-author:
+  filter: rjsmin
+  output: envidat_theme/%(version)s_envidat-copy-from-author.js
+  contents:
+    - js/envidat-copy-from-author.js
+  extra:
+    preload:
+      - base/main

@@ -25,7 +25,7 @@ def envidat_string_uppercase(key, data, errors, context):
     """
     # Plain value to uppercase
     tags = data[key]
-    if isinstance(tags, basestring):
+    if isinstance(tags, str):
         data[key] = tags.upper()
 
     # tags to uppercase
