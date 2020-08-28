@@ -15,6 +15,7 @@
       "preset_name": "tag_string_upper_autocomplete",
       "values": {
         "validators": "envidat_string_uppercase envidat_minimum_tag_count ignore_missing tag_string_convert",
+        "classes": ["control-full"],
         "form_attrs": {
           "data-module": "autocomplete",
           "data-module-tags": "",

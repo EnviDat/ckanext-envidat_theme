@@ -5,6 +5,9 @@ import ckan.plugins.toolkit as toolkit
 
 from ckanext.envidat_theme import helpers, validation, logic, action
 
+from ckan.lib.webassets_tools import add_public_path
+import os
+
 
 class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
@@ -18,7 +21,12 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
-        toolkit.add_resource('assets', 'envidat_theme')
+        toolkit.add_resource('public', 'envidat_theme')
+
+        asset_path = os.path.join(
+            os.path.dirname(__file__), 'public'
+        )
+        add_public_path(asset_path, '/')
 
     # ITemplateHelpers
     def get_helpers(self):

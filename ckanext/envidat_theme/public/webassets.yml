@@ -7,7 +7,7 @@ envidat-author-order_js:
     preload:
       - base/main
 
-envidat-copy-from-author:
+envidat-copy-from-author_js:
   filter: rjsmin
   output: envidat_theme/%(version)s_envidat-copy-from-author.js
   contents:
