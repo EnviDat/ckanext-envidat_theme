@@ -35,9 +35,12 @@
       "field_name": "publication_state",
       "label": "Publication State",
       "preset": "datacite_publication_select",
-      "form_include_blank_choice": true,
       "required": false,
       "choices": [
+              {
+                "value": "",
+                "label": ""
+              },
               {
                 "value": "reserved",
                 "label": "Reserved"
