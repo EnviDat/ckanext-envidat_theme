@@ -181,3 +181,18 @@ p.envidat-custom-header{
   padding: 0 5px;
   color: #777777;
 }
+
+/* datacite icons */
+.activity .item.requested-datacite-publication .icon {
+  background-color: rgb(49, 176, 213);
+}
+
+.activity .item.approved-datacite-publication .icon {
+  background-color: #75e35c;
+}
+.activity .item.finished-datacite-publication .icon {
+  background-color: rgb(0, 93, 122);
+}
+.activity .item.updated-datacite-publication .icon {
+  background-color: #0089b3;
+}
