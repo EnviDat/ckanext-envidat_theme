@@ -20,13 +20,12 @@ logger = logging.getLogger(__name__)
 
 
 def _envidat_theme_get_hash(text):
-    # logger.debug('Hashing ' + str(text))
     # https://www.pythoncentral.io/hashing-strings-with-python/
     # SHA256
-    hash_sha256 = hashlib.sha256(text)
+    hash_sha256 = hashlib.sha256(text.encode())
     hex_dig_sha256 = hash_sha256.hexdigest()
     # MD5
-    hash_md5 = hashlib.md5(hex_dig_sha256)
+    hash_md5 = hashlib.md5(hex_dig_sha256.encode())
     hex_dig_md5 = hash_md5.hexdigest()
     return hex_dig_md5
 

@@ -1,40 +1,34 @@
 {% ckan_extends %}
 
-  {% block resource_item_explore %}
-  {% if not url_is_edit %}
-  <div class="dropdown btn-group">
-    <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-      <i class="fa fa-share"></i>
-      {{ _('Explore') }}
-      <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-      {% block resource_item_explore_links %}
+{% set authorized = h.check_access('resource_show', {'id': res.id, 'resource': res }) %}
+
+{% block resource_item_explore_links %}
+  {% if authorized %}
       {% set url_token = h.envidat_theme_get_access_url(res) %}
       <li>
         <a href="{{ url }}">
-          {% if res.has_views %}
+          {% if not is_activity_archive and res.has_views %}
             <i class="fa fa-bar-chart-o"></i>
-            {{ _('Preview') }}
+            {{ _('PreviewX') }}
           {% else %}
             <i class="fa fa-info-circle"></i>
-            {{ _('More information') }}
+            {{ _('More informationX') }}
           {% endif %}
         </a>
       </li>
       {% if res.url and h.is_url(res.url) %}
-      <li>
-          {% if res.has_views or res.url_type == 'upload' %}
-            <a href="{{ url_token }}" class="resource-url-analytics" download="">
-              <i class="fa fa-arrow-circle-o-down"></i>
-            {{ _('Download') }}
-          {% else %}
-            <a href="{{ url_token }}" class="resource-url-analytics" target="_blank">
-              <i class="fa fa-external-link"></i>
-            {{ _('Go to resource') }}
-          {% endif %}
-        </a>
-      </li>
+        <li>
+            {% if res.has_views or res.url_type == 'upload' %}
+              <a href="{{ url_token }}" class="resource-url-analytics" download="">
+                <i class="fa fa-arrow-circle-o-down"></i>
+                    {{ _('Download') }}
+            {% else %}
+              <a href="{{ url_token }}" class="resource-url-analytics" target="_blank">
+                <i class="fa fa-external-link"></i>
+                     {{ _('Go to resource') }}
+            {% endif %}
+          </a>
+        </li>
       {% endif %}
       {% if can_edit %}
       <li>
@@ -44,8 +38,7 @@
         </a>
       </li>
       {% endif %}
-      {% endblock %}
-    </ul>
-  </div>
-  {% endif %}
+    {% else %}
+      {{ super() }}
+    {% endif %}
 {% endblock %}
