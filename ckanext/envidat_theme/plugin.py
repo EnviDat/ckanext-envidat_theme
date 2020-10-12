@@ -4,6 +4,7 @@ from ckan.lib.plugins import DefaultTranslation
 import ckan.plugins.toolkit as toolkit
 
 from ckanext.envidat_theme import helpers, validation, logic, action
+import ckanext.envidat_theme.blueprints as blueprints
 
 from ckan.lib.webassets_tools import add_public_path
 import os
@@ -16,6 +17,7 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IAuthFunctions)
     plugins.implements(plugins.IActions)
+    plugins.implements(plugins.IBlueprint, inherit=True)
 
     # IConfigurer
     def update_config(self, config_):
@@ -61,3 +63,7 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     # Organization admins can edit all datasets in their organization
     def get_auth_functions(self):
         return {'package_update': logic.envidat_theme_package_update}
+
+    # IBlueprint
+    def get_blueprint(self):
+        return blueprints.get_blueprints(self.name, self.__module__)
