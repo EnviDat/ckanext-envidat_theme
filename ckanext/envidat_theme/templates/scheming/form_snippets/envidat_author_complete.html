@@ -1,0 +1,22 @@
+{% asset 'envidat_theme/envidat-author-complete_js' %}
+
+{% set name=parent + '-' + subfield_index + '-' + field.field_name %}
+{% set for_text='field-' + name %}
+
+<div class="form-group mediunput" data-module="envidat-author-complete">
+  	<div class="controls envidat-author-complete-controls">
+		<label class="control-label" for="{{ for_text }}">Autocomplete Author {{subfield_index}}</label>
+		<label class="checkbox btn btn-primary fa fa-refresh" style="margin-top:0px;border-color:#1f7a7a;background-color:#2eb8b8;">
+		 	<input type="checkbox" id="{{ name }}" name={{ name }} style="display:none;"/>
+		</label>
+  	</div>
+	{% if field.help_text %}
+		{%- set markup_text = h.composite_get_markup(field.help_text) -%}
+		<div class="info-block composite-subfield-info-first">
+		  <i class="fa fa-info-circle"></i>
+		  {{ markup_text|safe }}
+		</div>
+	{% endif %}
+
+</div>
+

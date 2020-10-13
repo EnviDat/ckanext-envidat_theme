@@ -163,6 +163,14 @@
             "help_inline": true
           },
           {
+            "field_name": "autocomplete",
+            "label": "Autocomplete",
+            "form_snippet": "envidat_author_complete.html",
+            "display_snippet": null,
+            "help_text": "Click the button to autocomplete the author information from the email",
+            "help_inline": true
+          },
+          {
             "field_name": "identifier",
             "label": "ORCID",
             "form_placeholder":"eg. 0000-0003-0166-248X",

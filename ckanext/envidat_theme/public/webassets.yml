@@ -15,3 +15,12 @@ envidat-copy-from-author_js:
   extra:
     preload:
       - base/main
+
+envidat-author-complete_js:
+  filter: rjsmin
+  output: envidat_theme/%(version)s_envidat-author-complete.js
+  contents:
+    - js/envidat-author-complete.js
+  extra:
+    preload:
+      - base/main
