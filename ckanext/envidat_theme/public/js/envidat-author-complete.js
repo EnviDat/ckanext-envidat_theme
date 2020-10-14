@@ -33,17 +33,25 @@ this.ckan.module('envidat-author-complete', function (jQuery, _) {
        // get the author's email
 	   var authorEmail = $('#author-' + index + '-email').val();
        if(authorEmail) {
-           //TODO replace this with a custom API call
-    	   var author_data = JSON.parse('{ "name": "Mott", "affiliation": "WSL", "given_name": "Rebecca", "identifier": "123345345", "email": "mott@slf.ch" }');
-           // copy the info in the fields
-    	   jQuery.each(author_data, function(i, val) {
-    	        if ((i != 'email') && (i != 'data_credit')){
-                    var authorField = $('#author-' + index + '-' + i);
-                    if (!(authorField.val())) {
-                        authorField.val(val)
+           // call the designed api call
+           $.get(
+                "/api/action/envidat_get_author_data",
+                {email : authorEmail},
+                function(data) {
+                     var author_data = data.result
+                     if (author_data) {
+                        // copy the info in the fields
+                        jQuery.each(author_data, function(i, val) {
+                            if ((i != 'email') && (i != 'data_credit')){
+                                var authorField = $('#author-' + index + '-' + i);
+                                if (!(authorField.val())) {
+                                    authorField.val(val)
+                                }
+                            }
+                        });
                     }
                 }
-            });
+            );
         } else {
             console.warn("Author " + index + " has no valid email")
         }
