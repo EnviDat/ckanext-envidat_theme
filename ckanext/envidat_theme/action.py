@@ -53,7 +53,7 @@ def get_author_data(context, data_dict):
                 'package_search')(
                 context,
                 {'fq': 'author:' + email,
-                 'sort': 'metadata_modified asc'}
+                 'sort': 'metadata_modified desc'}
             )
         except Exception as e:
             log.error("exception {0}".format(e))
