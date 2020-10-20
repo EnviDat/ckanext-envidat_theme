@@ -5,6 +5,9 @@ from ckan.logic.action.get import user_show
 import ckan.plugins.toolkit as toolkit
 from ckanext.passwordless import util
 import json
+from xml.etree import ElementTree
+import requests
+
 
 from logging import getLogger
 
@@ -60,6 +63,7 @@ def get_author_data(context, data_dict):
             log.error("exception {0}".format(e))
             return {}
 
+        author_data = {}
         if search_results.get('count', 0) > 0:
             author_data_list = []
             for dataset in search_results.get('results', []):
@@ -81,10 +85,35 @@ def get_author_data(context, data_dict):
                         # TODO skip affiliation
                         author_data[k] = "{0}".format(v).strip()
 
-            # TODO check if the orcid is empty request from ORCID API
-            # https://www.envidat.ch/orcid/search/?q=email:*@wsl.ch
+        # TODO check if the orcid is empty request from ORCID API
+        # https://www.envidat.ch/orcid/search/?q=email:*@wsl.ch
+        if not author_data.get('identifier'):
+            author_data['identifier'] = get_orcid_id(email)
 
-            return author_data
+        return author_data
 
     return {}
 
+
+
+
+def get_orcid_id(email):
+    try:
+
+        api_call = 'https://www.envidat.ch/orcid/search/?q=email:{0}'.format(email)
+
+        req = requests.get(api_call)
+
+        root = ElementTree.fromstring(req.content)
+
+        path = root.find(".//{http://www.orcid.org/ns/common}path")
+        orcid_id = path.text
+
+        return orcid_id
+
+    except AttributeError:
+        return ''
+
+    except Exception as e:
+        log.error('Failed to get orcid_id: {0}'.format(e))
+        return ''
