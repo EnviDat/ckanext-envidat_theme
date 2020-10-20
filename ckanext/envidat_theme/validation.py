@@ -54,6 +54,20 @@ def envidat_minimum_tag_count(key, data, errors, context):
         raise StopOnError
 
 
+def envidat_minimum_description_length(key, data, errors, context):
+    """
+      count description chars and raise an error if there are less than 100
+    """
+    min_length = 100
+    # tags to count
+    description = data.get(key, "")
+    description_length = len(description)
+
+    if description_length < min_length:
+        errors[key].append(_('at least {0} characters, currently {1}'.format(min_length, description_length)))
+        raise StopOnError
+
+
 @scheming_validator
 def envidat_reorder(field, schema):
     def validator(key, data, errors, context):

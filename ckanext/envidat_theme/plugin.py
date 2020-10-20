@@ -51,7 +51,8 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
                 'envidat_shortname_validator': validation.envidat_shortname_validator,
                 'envidat_minimum_tag_count': validation.envidat_minimum_tag_count,
                 'envidat_reorder': validation.envidat_reorder,
-                'envidat_copy_type_general': validation.envidat_copy_type_general}
+                'envidat_copy_type_general': validation.envidat_copy_type_general,
+                'envidat_minimum_description_length': validation.envidat_minimum_description_length}
 
     # IActions
     def get_actions(self):

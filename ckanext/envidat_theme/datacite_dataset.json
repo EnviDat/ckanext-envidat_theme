@@ -71,6 +71,7 @@
     {
       "field_name": "notes",
       "label": "Description",
+      "validators": "envidat_minimum_description_length",
       "form_snippet": "markdown.html",
       "form_placeholder": "eg. Some useful notes about the data",
       "required": true,
