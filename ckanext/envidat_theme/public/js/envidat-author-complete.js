@@ -40,13 +40,11 @@ this.ckan.module('envidat-author-complete', function (jQuery, _) {
                 function(data) {
                      var author_data = data.result
                      if (author_data) {
-                        // copy the info in the fields
+                        // copy the info in the fields (consider adding a cleanup first)
                         jQuery.each(author_data, function(i, val) {
                             if ((i != 'email') && (i != 'data_credit')){
                                 var authorField = $('#author-' + index + '-' + i);
-                                if (!(authorField.val())) {
-                                    authorField.val(val)
-                                }
+                                authorField.val(val)
                             }
                         });
                     }
