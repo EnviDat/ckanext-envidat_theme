@@ -73,9 +73,11 @@
       "label": "Description",
       "validators": "envidat_minimum_description_length",
       "form_snippet": "markdown.html",
-      "form_placeholder": "eg. Some useful notes about the data",
+      "form_placeholder": "The description should be as brief as possible, but as long as necessary so that any potential data user can find answers to the following: what is the research data about, which methods were used, including important steps in processing or manipulating data, and citations for any third-party data that you have used in order to produce the new dataset.",
       "required": true,
-      "datacite": "descriptions.description"
+      "datacite": "descriptions.description",
+      "help_text": "Concise text describing the dataset thoroughly (minimum 100 characters).",
+      "help_inline": false
     },
     {
       "field_name": "funding",

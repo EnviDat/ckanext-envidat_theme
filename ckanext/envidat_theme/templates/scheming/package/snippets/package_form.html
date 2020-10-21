@@ -1,5 +1,14 @@
 {% ckan_extends %}
 
+{% block basic_fields %}
+  <div>
+    Please follow the EnviDat publishing guidelines at
+    <a href="https://www.envidat.ch/#/guidelines" target="_blank">www.envidat.ch/#/guidelines</a>
+  <hr>
+  </div>
+  {{ super() }}
+{% endblock %}
+
 {% block metadata_fields %}
   {% block package_metadata_fields_custom %} 
     {% block custom_fields %}
