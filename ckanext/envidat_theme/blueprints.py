@@ -47,12 +47,16 @@ def catalog_export(file_format, extension='xml'):
         package_list = toolkit.get_action('package_list')(context, {})
         converted_packages = []
 
-        for package_name in package_list:
-            converted_record = export_as_record(package_name, file_format, type='package')
-            record = XMLRecord.from_record(converted_record)
-            dataset_dict = record.get_xml_dict().get('rdf:RDF', {}).get('dcat:Dataset')
-            if dataset_dict:
-                converted_packages += [{'dcat:Dataset': dataset_dict}]
+        try:
+            for package_name in package_list:
+                converted_record = export_as_record(package_name, file_format, type='package')
+                record = XMLRecord.from_record(converted_record)
+                dataset_dict = record.get_xml_dict().get('rdf:RDF', {}).get('dcat:Dataset')
+                if dataset_dict:
+                    converted_packages += [{'dcat:Dataset': dataset_dict}]
+        except Exception as e:
+            log.error('Cannot convert to format {0}, Exception: {1}'.format(file_format,e))
+            toolkit.abort(404, 'Cannot convert, format not found')
 
         catalog_dict = collections.OrderedDict()
 
