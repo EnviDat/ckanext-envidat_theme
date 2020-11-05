@@ -1,3 +1,10 @@
+
+envidat_theme_ckan_css:
+  filters: cssrewrite
+  output: envidat_theme/%(version)s_envidat_theme_ckan.css
+  contents:
+    - envidat_theme_ckan.css
+
 envidat-author-order_js:
   filter: rjsmin
   output: envidat_theme/%(version)s_envidat-author-order.js

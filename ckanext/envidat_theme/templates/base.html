@@ -3,5 +3,6 @@
 
   {% block styles %}
     {{ super() }}
-    <link rel="stylesheet" href="/envidat_theme.css" />
+   {% asset 'envidat_theme/envidat_theme_ckan_css' %}
   {% endblock %}
+
