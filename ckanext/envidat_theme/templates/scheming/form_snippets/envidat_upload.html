@@ -1,6 +1,9 @@
 {% import 'macros/form.html' as form %}
 
+{% block basic_fields_url %}
+
 {%- set is_upload = (data.url_type == 'upload') -%}
+
 {{ form.image_upload(
     data,
     errors,
@@ -25,3 +28,4 @@
         {{ text }}
          </div>
 {%- endif -%}
+{% endblock %}
