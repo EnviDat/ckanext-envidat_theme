@@ -632,7 +632,7 @@
       "field_name": "url",
       "label": "URL",
       "preset": "resource_url_upload",
-      "help_text": "for files larger than 1 GB please contact envidat@wsl.ch",
+      "help_text": "for files larger than 5 GB please contact envidat@wsl.ch",
       "form_snippet": "envidat_upload.html"
     },
     {
