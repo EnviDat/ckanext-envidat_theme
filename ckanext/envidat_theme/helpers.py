@@ -252,12 +252,12 @@ def envidat_theme_get_datamanager_user(username, organization_dict):
     return datamanager_user
 
 
-def envidat_theme_sizeof_fmt(num_text, resource_size=None):
-    if num_text:
+def envidat_theme_sizeof_fmt(num_text, resource_size=None, url_type='upload'):
+    if num_text and url_type == 'upload':
         try:
             num = float(num_text)
         except:
-            return str(num_text) + " bytes"
+            return ""
         for unit in ['bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB']:
             if abs(num) < 1024.0:
                 return "%3.2f %s" % (num, unit)
@@ -266,9 +266,9 @@ def envidat_theme_sizeof_fmt(num_text, resource_size=None):
     else:
         try:
             resource_size_obj = json.loads(resource_size)
-            return resource_size_obj.get('size_value', '0') + ' ' + resource_size_obj.get('size_unit', 'KB').upper()
+            return resource_size_obj.get('size_value', '0') + ' ' + resource_size_obj.get('size_units', 'KB').upper()
         except:
-            return str(num_text) + " bytes"
+            return ""
 
 
 def envidat_get_related_datasets(related_datasets):

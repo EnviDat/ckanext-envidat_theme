@@ -48,7 +48,7 @@
   {% if (res.size) or (res.resource_size) %}
   <tr>
 	<th scope="row">{{ _('Size') }}</th>
-	<td>{{ h.envidat_theme_sizeof_fmt(res.size, res.resource_size) }}</td>
+	<td>{{ h.envidat_theme_sizeof_fmt(res.size, res.resource_size, res.url_type) }}</td>
   </tr>
   {% endif %}
 {%- endblock -%}
