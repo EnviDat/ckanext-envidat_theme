@@ -3,7 +3,7 @@ from ckan.lib.plugins import DefaultTranslation
 
 import ckan.plugins.toolkit as toolkit
 
-from ckanext.envidat_theme import helpers, validation, logic, action
+from ckanext.envidat_theme import helpers, validation, logic, action, commands
 import ckanext.envidat_theme.blueprints as blueprints
 
 from ckan.lib.webassets_tools import add_public_path
@@ -18,6 +18,7 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IAuthFunctions)
     plugins.implements(plugins.IActions)
     plugins.implements(plugins.IBlueprint, inherit=True)
+    plugins.implements(plugins.IClick)
 
     # IConfigurer
     def update_config(self, config_):
@@ -69,3 +70,7 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     # IBlueprint
     def get_blueprint(self):
         return blueprints.get_blueprints(self.name, self.__module__)
+
+    # IClick
+    def get_commands(self):
+        return commands.get_commands()
