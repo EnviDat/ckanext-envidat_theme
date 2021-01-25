@@ -703,6 +703,7 @@
       "field_name": "restricted",
       "label": "Access Restriction",
       "preset": "composite",
+      "validators": "composite_group2json restricted_username_from_mail",
       "subfields":
         [
           {
