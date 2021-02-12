@@ -1,12 +1,17 @@
 import ckan.model as model
 import ckan.plugins.toolkit as toolkit
+import ckan.plugins as p
+
 import collections
 
 from logging import getLogger
 
-from flask import Blueprint, make_response
+from flask import Blueprint, make_response, request
 
 from xmltodict import unparse
+
+import urllib
+import requests
 
 from ckanext.package_converter.logic import export_as_record
 from ckanext.package_converter.model.record import XMLRecord
@@ -22,6 +27,12 @@ def get_blueprints(name, module):
         u"/catalog/export/<file_format>.<extension>",
         u"catalog_export",
         catalog_export
+    )
+
+    blueprint.add_url_rule(
+        u"/query",
+        u"query",
+        query_solr
     )
 
     return blueprint
@@ -83,3 +94,23 @@ def catalog_export(file_format, extension='xml'):
     else:
         toolkit.abort(404, 'Format not found')
 
+
+def query_solr():
+    """Redirect the query to Solr
+    """
+
+    # get the config object
+    config = toolkit.config
+    solr_url = config.get('solr_url')
+    query = urllib.parse.urlencode(request.args)
+    request_url = solr_url + "/select?" + query
+
+    # set a header
+    headers = {u'Content-Type': 'application/json'}
+
+    try:
+        r = requests.get(request_url, headers=headers)
+        return make_response(r.content, r.status_code, headers)
+    except Exception as e:
+        log.error('Cannot query to Solr {0}, Exception: {1}'.format(query, e))
+        return make_response({'error': 'Exception occurred', 'message': str(e)}, 500, headers)
