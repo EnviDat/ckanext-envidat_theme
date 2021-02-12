@@ -77,7 +77,7 @@ def envidat_reorder(field, schema):
 
         try:
             field_data = json.loads(data[key])
-            sorted_list = sorted(field_data, key=lambda k: k.get('order', len(field_data)))
+            sorted_list = sorted(field_data, key=lambda k: int(k.get('order', len(field_data))))
             for element in sorted_list:
                 element.pop('order', 0)
             data[key] = json.dumps(sorted_list)
