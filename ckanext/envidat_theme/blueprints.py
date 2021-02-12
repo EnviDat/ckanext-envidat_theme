@@ -13,6 +13,8 @@ from xmltodict import unparse
 import urllib
 import requests
 
+import base64
+
 from ckanext.package_converter.logic import export_as_record
 from ckanext.package_converter.model.record import XMLRecord
 
@@ -98,17 +100,22 @@ def catalog_export(file_format, extension='xml'):
 def query_solr():
     """Redirect the query to Solr
     """
-
-    # get the config object
-    config = toolkit.config
-    solr_url = config.get('solr_url')
-    query = urllib.parse.urlencode(request.args)
-    request_url = solr_url + "/select?" + query
-
-    # set a header
-    headers = {u'Content-Type': 'application/json'}
-
     try:
+        # get the config object
+        config = toolkit.config
+        solr_url = config.get('solr_url')
+
+        # base64
+        if request.args.get('stream'):
+            query = base64.b64decode(request.args.get('stream')).decode("utf-8")
+            request_url = solr_url + "/select?" + query
+        else:
+            query = urllib.parse.urlencode(request.args)
+            request_url = solr_url + "/select?" + query
+
+        # set a header
+        headers = {u'Content-Type': 'application/json'}
+
         r = requests.get(request_url, headers=headers)
         return make_response(r.content, r.status_code, headers)
     except Exception as e:
