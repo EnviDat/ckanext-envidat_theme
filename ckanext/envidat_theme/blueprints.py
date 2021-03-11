@@ -26,7 +26,7 @@ def get_blueprints(name, module):
     blueprint = Blueprint(name, module)
 
     blueprint.add_url_rule(
-        u"/catalog/export/<file_format>.<extension>",
+        u"/opendata/export/<file_format>.<extension>",
         u"catalog_export",
         catalog_export
     )
