@@ -523,7 +523,7 @@
       "label": "Content License",
       "form_include_blank_choice": true,
       "form_snippet": "envidat_license.html",
-      "help_text": "Please select a license from the list:<ul><li><b>ODbL</b> requests to attribute, share-Alike and keep Open: see https://opendatacommons.org/licenses/odbl/summary/ </li><li> <b>WSL Data Policy</b>  requests to Attribute, forbids the duplication of datasets and forbids redistribution unless otherwise agreed with data originators </li><li>Select <b>Other</b> in order to specify your own license in the description of the dataset </li></ul>",
+      "help_text": "Please select a license from the list:<ul><li><b>ODbL</b> requests to attribute, share-Alike and keep Open: see https://opendatacommons.org/licenses/odbl/summary/ </li><li><b>WSL Data Policy</b>  requests to Attribute, forbids the duplication of datasets and forbids redistribution unless otherwise agreed with data originators </li><li><b>CC-BY-SA</b> requests you Attribute, Share-Alike and keep Open: see https://creativecommons.org/licenses/by-sa/4.0/ </li><li><b>CC 0</b> you waive all rights and dedicate the work to the public domain: see https://creativecommons.org/publicdomain/zero/1.0/ </li><li>Select <b>Other</b> in order to specify your own license in the description of the dataset </li></ul>",
       "datacite": "rightsList.rights",
       "required": true
     },
