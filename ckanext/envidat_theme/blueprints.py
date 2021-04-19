@@ -104,6 +104,8 @@ def query_solr():
         # get the config object
         config = toolkit.config
         solr_url = config.get('solr_url')
+        solr_user = config.get('solr_user')
+        solr_password = config.get('solr_password')
 
         # base64
         if request.args.get('stream'):
@@ -115,6 +117,12 @@ def query_solr():
 
         # set a header
         headers = {u'Content-Type': 'application/json'}
+
+        # set authorization
+        if solr_user is not None and solr_password is not None:
+            http_auth = solr_user + ':' + solr_password
+            http_auth = base64.b64encode(bytes(http_auth, "utf-8")).decode()
+            headers['Authorization'] = 'Basic {0}'.format(http_auth)
 
         r = requests.get(request_url, headers=headers)
         return make_response(r.content, r.status_code, headers)
