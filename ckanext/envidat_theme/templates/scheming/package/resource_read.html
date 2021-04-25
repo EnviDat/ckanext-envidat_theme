@@ -2,28 +2,30 @@
 
 
 {% block resource_actions_inner %}
-            {% set url_token = h.envidat_theme_get_access_url(res) %}
-            {% if h.check_access('package_update', {'id':pkg.id }) %}
-              <li>{% link_for _('Manage'), named_route=pkg.type ~ '_resource.edit', id=pkg.name, resource_id=res.id, class_='btn btn-default', icon='wrench' %}</li>
-            {% endif %}
-            {% if res.url and h.is_url(res.url) %}
-              <li>
-                  {% if res.resource_type in ('listing', 'service') %}
-                    <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">
-                      <i class="fa fa-eye"></i> {{ _('View') }}
-                  {% elif  res.resource_type == 'api' %}
-                    <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">
-                      <i class="fa fa-key"></i> {{ _('API Endpoint') }}
-                  {% elif (not res.has_views or not res.can_be_previewed) and not res.url_type == 'upload' %}
-                    <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ url_token }}">
-                      <i class="fa fa-external-link"></i> {{ _('Go to resource') }}
-                  {% else %}
+    {% set url_token = h.envidat_theme_get_access_url(res) %}
+    {% if h.check_access('package_update', {'id':pkg.id }) %}
+      <li>{% link_for _('Manage'), named_route=pkg.type ~ '_resource.edit', id=pkg.name, resource_id=res.id, class_='btn btn-default', icon='wrench' %}</li>
+    {% endif %}
+    {% if res.url and h.is_url(res.url) %}
+      <li>
+          {% if res.resource_type in ('listing', 'service') %}
+            <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">
+              <i class="fa fa-eye"></i> {{ _('View') }}
+          {% elif  res.resource_type == 'api' %}
+            <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}">
+              <i class="fa fa-key"></i> {{ _('API Endpoint') }}
+          {% elif (not res.has_views or not res.can_be_previewed) and not res.url_type == 'upload' %}
+            <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ url_token }}">
+              <i class="fa fa-external-link"></i> {{ _('Go to resource') }}
+          {% else %}
+                {% block download_resource_button_action %}
                     <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}" download="">
                       <i class="fa fa-arrow-circle-o-down"></i> {{ _('Download') }}
-                  {% endif %}
-                </a>
-              </li>
-            {% endif %}
+                {% endblock %}
+          {% endif %}
+        </a>
+      </li>
+    {% endif %}
 {% endblock %}
 
 {% block resource_read_url %}
