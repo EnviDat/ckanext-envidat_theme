@@ -89,7 +89,7 @@ def _migrate_local(path):
                         multi_hash_file = _md5sum(resource_path)
                         print("\t - File multi hash {0}: {1}".format(resource_path, multi_hash_file))
                         if multi_hash_file == cloud_object.hash:
-                            print("\t - File found, matching hash, skipping upload...")
+                            print("\t - File found, matching hash, skipping download...")
                         else:
                             print("\t * File found, different multi hash {0}".format(cloud_object.hash))
                             do_migrate = True
@@ -98,7 +98,7 @@ def _migrate_local(path):
                 Path(resource_path).touch()
                 cloud_object.download(destination_path=resource_path, overwrite_existing=True)
                 count_downloaded += 1
-                print("\t\t ...DONE")
+                print("\t\t ...DONE ({0})".format(count_downloaded))
 
         except NotFound:
             print(u'\t - Resource not found, skipping...')
