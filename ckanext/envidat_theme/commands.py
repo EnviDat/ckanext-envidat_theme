@@ -5,7 +5,8 @@ import click
 import os
 
 from pathlib import Path
-
+import ckan.plugins.toolkit as toolkit
+import ckan.model as model
 import ckan.plugins as p
 from ckanapi import LocalCKAN
 from ckan.logic import NotFound
@@ -58,7 +59,13 @@ def _migrate_local(path):
     for resource_id, cloud_object in obj_dir.items():
         print("\n - {0} : {1}".format(resource_id, cloud_object.name))
         try:
-            resource = lc.action.resource_show(id=resource_id)
+            resource = model.Resource.get(resource_id)
+            if resource is None:
+                print("\t - cannot find resource {0}".format(resource_id))
+                raise NotFound
+            if resource.state != "active":
+                print("\t - resource {0} was deleted probably, state = {1}".format(resource_id, resource.state))
+                raise NotFound
             count_existing +=1
             print(u'\t * Resource FOUND')
             # check if it exists locally
