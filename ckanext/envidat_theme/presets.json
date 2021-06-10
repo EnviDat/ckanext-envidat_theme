@@ -31,6 +31,13 @@
         "validators": "scheming_required",
         "sorted_choices": true
       }
+    },
+    {
+      "preset_name": "envidat_dataset_organization",
+      "values": {
+        "validators": "owner_org_validator unicode",
+        "form_snippet": "envidat_organization.html"
+      }
     }
   ]
 }

@@ -66,7 +66,7 @@
     {
       "field_name": "owner_org",
       "label": "Organization",
-      "preset": "dataset_organization"
+      "preset": "envidat_dataset_organization"
     },
     {
       "field_name": "notes",
