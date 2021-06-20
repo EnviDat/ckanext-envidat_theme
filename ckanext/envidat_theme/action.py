@@ -56,7 +56,7 @@ def get_author_data(context, data_dict):
             search_results = toolkit.get_action(
                 'package_search')(
                 context,
-                {'fq': 'author:' + email,
+                {'q': 'author:\"' + email + '\"',
                  'sort': 'metadata_modified desc'}
             )
         except Exception as e:
@@ -70,13 +70,16 @@ def get_author_data(context, data_dict):
                 author_data_list += [a for a in json.loads(dataset.get('author'))
                                      if a.get('email', '').strip().lower() == email]
 
+
             # copy dictionary field by field including empty fields
             author_data = {}
-            for k, v in author_data_list[0].items():
-                if v and len(v) > 0:
-                    author_data[k] = "{0}".format(v).strip()
-                else:
-                    author_data[k] = ""
+
+            if author_data_list:
+                for k, v in author_data_list[0].items():
+                    if v and len(v) > 0:
+                        author_data[k] = "{0}".format(v).strip()
+                    else:
+                        author_data[k] = ""
 
             # fill up empty fields from older datasets
             for author in author_data_list:
