@@ -734,6 +734,22 @@
            "label": "Shared Secret"
          }
        ]
+     },
+    {
+      "field_name": "publication_state",
+      "label": "Publication State",
+      "preset": "datacite_publication_select",
+      "required": false,
+      "choices": [
+          {
+            "value": "",
+            "label": ""
+          },
+          {
+            "value": "published",
+            "label": "Published"
+          }
+       ]
      }
   ]
 }
