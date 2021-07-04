@@ -696,6 +696,7 @@
     {
       "field_name": "doi",
       "label": "DOI",
+      "preset": "datacite_publication_doi_text",
       "form_placeholder": "eg. 10.12345/678",
       "datacite":"identifier"
     },
