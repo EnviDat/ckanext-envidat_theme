@@ -65,7 +65,8 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
     # Editors can edit their own datasets
     # Organization admins can edit all datasets in their organization
     def get_auth_functions(self):
-        return {'package_update': logic.envidat_theme_package_update}
+        return {'package_update': logic.envidat_theme_package_update,
+                'package_delete': logic.envidat_theme_package_delete}
 
     # IBlueprint
     def get_blueprint(self):

@@ -1,8 +1,10 @@
 import ckan.logic.auth as logic_auth
 import ckan.authz as authz
 from ckan.logic.auth.update import package_update
+from ckan.logic.auth.delete import package_delete
 from ckan.logic import get_action
 from ckan.common import _
+import ckan.plugins.toolkit as toolkit
 
 import ckan.model as model
 
@@ -55,8 +57,33 @@ def envidat_theme_package_update(context, data_dict):
 
     # log.debug("false - cannot update")
     return {'success': False,
-            'msg': _('User %s not authorized to edit this dataset') %
-                   (str(user))}
+            'msg': _('User %s not authorized to edit this dataset') % (str(user))}
+
+
+# only admins can delete datasets
+def envidat_theme_package_delete(context, data_dict):
+    # if CKAN returns false, don't do any further checks
+    ckan_default_auth = package_delete(context, data_dict)
+
+    if not ckan_default_auth.get('success', True):
+        return ckan_default_auth
+
+    # retrieve user and package data
+    username = context.get('user')
+    # Get user information
+    try:
+        user = toolkit.get_action('user_show')({'ignore_auth': True}, {'id': username})
+    except Exception as e:
+        log.error("Exception getting user for username {0}: {1} ".format(username, e))
+        return {'success': False,
+                'msg': _('Exception checking if user %s is authorized to delete this dataset') % (str(username))}
+
+    if user.get('sysadmin'):
+        return {'success': True}
+
+    # log.debug("false - cannot update")
+    return {'success': False,
+            'msg': _('User %s not authorized to delete this dataset') % (str(user))}
 
 
 def _get_user_role_organization(user_id, org_id):
