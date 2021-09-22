@@ -1,6 +1,5 @@
 {% ckan_extends %}
 
-
 {% block resource_actions_inner %}
     {% set url_token = h.envidat_theme_get_access_url(res) %}
     {% if h.check_access('package_update', {'id':pkg.id }) %}
@@ -19,8 +18,14 @@
               <i class="fa fa-external-link"></i> {{ _('Go to resource') }}
           {% else %}
                 {% block download_resource_button_action %}
-                    <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}" download="">
-                      <i class="fa fa-arrow-circle-o-down"></i> {{ _('Download') }}
+                    {% set incomplete_upload = h.cloudstorage_check_multipart(res.id) %}
+                    {% if incomplete_upload %}
+                         <a class="btn btn-primary" disabled="disabled" href="" download="">
+                          <i class="fa fa-arrow-circle-o-down"></i> {{ _('Download') }}
+                    {% else %}
+                        <a class="btn btn-primary resource-url-analytics resource-type-{{ res.resource_type }}" href="{{ res.url }}" download="">
+                          <i class="fa fa-arrow-circle-o-down"></i> {{ _('Download') }}
+                    {% endif %}
                 {% endblock %}
           {% endif %}
         </a>
@@ -29,12 +34,18 @@
 {% endblock %}
 
 {% block resource_read_url %}
-            {% set url_token = h.envidat_theme_get_access_url(res) %}
-            {% if res.url and h.is_url(res.url) %}
-              <p class="muted ellipsis">{{ _('URL:') }} <a class="resource-url-analytics" href="{{ url_token }}" title="{{ url_token }}" download="">{{ url_token }}</a></p>
-            {% elif res.url %}
-              <p class="muted break-word">{{ _('URL:') }} {{ res.url }}</p>
-            {% endif %}
+    {% set incomplete_upload = h.cloudstorage_check_multipart(res.id) %}
+
+    {% if incomplete_upload %}
+          <p class="muted break-word">{{ _('URL: Unavailable. Resource not fully uploaded') }} </p>
+    {% else %}
+        {% set url_token = h.envidat_theme_get_access_url(res) %}
+        {% if res.url and h.is_url(res.url) %}
+          <p class="muted ellipsis">{{ _('URL:') }} <a class="resource-url-analytics" href="{{ url_token }}" title="{{ url_token }}" download="">{{ url_token }}</a></p>
+        {% elif res.url %}
+          <p class="muted break-word">{{ _('URL:') }} {{ res.url }}</p>
+        {% endif %}
+    {% endif %}
 {% endblock %}
 
 {%- block resource_format -%}
