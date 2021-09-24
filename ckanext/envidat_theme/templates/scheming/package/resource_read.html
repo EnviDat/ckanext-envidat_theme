@@ -37,7 +37,7 @@
     {% set incomplete_upload = h.cloudstorage_check_multipart(res.id) %}
 
     {% if incomplete_upload %}
-          <p class="muted break-word">{{ _('URL: Unavailable. Resource not fully uploaded') }} </p>
+          <p class="muted break-word">{{ _('URL: Unavailable. Resource not fully uploaded – please resume the upload') }} </p>
     {% else %}
         {% set url_token = h.envidat_theme_get_access_url(res) %}
         {% if res.url and h.is_url(res.url) %}
