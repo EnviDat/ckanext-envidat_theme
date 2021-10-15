@@ -40,8 +40,8 @@
       {% endif %}
     {% endif %}
 
+    {% block package_metadata_fields_visibility %}
     {% if show_visibility_selector and user_is_sysadmin %}
-      {% block package_metadata_fields_visibility %}
         <div class="form-group control-medium">
           <label for="field-private" class="control-label">{{ _('Visibility') }}</label>
           <div class="controls">
@@ -54,8 +54,25 @@
             </select>
           </div>
         </div>
-      {% endblock %}
+    {% else %}
+        <div class="form-group control-medium">
+          <label for="field-private" class="control-label">{{ _('Visibility') }}</label>
+          {% set visibility_options = [('True', _('Private')), ('False', _('Public'))] %}
+          {% set visibility = data.private | default('True') %}
+          <div class="controls" disabled="true" >
+            <select id="field-private" name="private" class="form-control" disabled="true">
+              {% for option in visibility_options%}
+                {% if option[0] == visibility|trim %}
+                  <option value="{{ option[0] }}" selected="selected">
+                  {{ option[1] }}
+                </option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        </div>
     {% endif %}
+    {% endblock %}
 
     {% if show_organizations_selector and show_visibility_selector %}
   </div>
