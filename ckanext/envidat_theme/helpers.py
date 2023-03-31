@@ -373,7 +373,7 @@ def _get_dora_id_citation(dora_id, html_tags=['<li>', '</li>']):
     try:
         response = urlopen(citation_url)
         data = json.loads(response.read())
-        citation_html = data[dora_id]["citation"]["ACS"]
+        citation_html = data[dora_id]["citation"]["WSL"]
         dora_html = html_tags[0] + _markup_links(citation_html) + html_tags[1]
     except:
         logger.warning(u"Couldn't retrieve DORA citation for '{0}'".format(dora_id))
