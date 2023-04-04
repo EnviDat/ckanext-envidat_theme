@@ -1,5 +1,12 @@
 {% set intro = g.site_intro_text %}
 
+<div class="module-content box" style="background-color: #FF0000; color: white;">
+  <h2>
+    WARNING: Login here is disabled. Please login at 
+    <a href="https://www.envidat.ch">https://www.envidat.ch</a></i> first.
+  </h2>
+</div>
+
 <div class="module-content box">
   {% block home_image %}
       {% block home_image_content %}
@@ -19,7 +26,7 @@
         {% endtrans %}
       </p>
       <p>
-        More information about EnviDat can be found <b><a href="/about">here</a></b>.
+        More information about EnviDat can be found <b><a href="https://envidat.ch/about">here</a></b>.
       </p>
       <p><b style="color:#FF0000">WARNING:</b><i> Login here is disabled. Please login at 
           <a href="https://www.envidat.ch">https://www.envidat.ch</a></i> first.
