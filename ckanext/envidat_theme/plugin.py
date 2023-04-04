@@ -3,6 +3,8 @@ from ckan.lib.plugins import DefaultTranslation
 
 import ckan.plugins.toolkit as toolkit
 
+from ckan.lib.helpers import url_for, user_image
+
 from ckanext.envidat_theme import helpers, validation, logic, action, commands
 import ckanext.envidat_theme.blueprints as blueprints
 
@@ -44,7 +46,9 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
                 'envidat_get_dora_citation': helpers.envidat_get_dora_citation,
                 'envidat_get_related_datasets': helpers.envidat_get_related_datasets,
                 'envidat_get_related_citations': helpers.envidat_get_related_citations,
-                'envidat_get_funding': helpers.envidat_get_funding}
+                'envidat_get_funding': helpers.envidat_get_funding,
+                'url_for': url_for,
+                'user_image': user_image}
 
     # IValidators
     def get_validators(self):
