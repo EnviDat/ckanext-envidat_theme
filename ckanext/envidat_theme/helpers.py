@@ -9,7 +9,6 @@ from builtins import str as unicode_text
 import ckan.lib.helpers as h
 import ckan.plugins.toolkit as toolkit
 
-from ckanext.hierarchy import helpers
 import ckan.plugins as p
 
 from ckan.common import c
@@ -72,6 +71,15 @@ def envidat_theme_get_access_url(resource, user_id=''):
     return url
 
 
+# Replaces the function previously importd from ckanext-hierarchy helpers
+def _group_tree_section(id_, type_='organization', include_parents=True,
+                       include_siblings=True):
+    return p.toolkit.get_action('group_tree_section')(
+        {'include_parents': include_parents,
+         'include_siblings': include_siblings},
+        {'id': id_, 'type': type_, })
+
+
 # Copied from hierarchy, maybe this code should go there!!
 def envidat_theme_get_children_packages(organization, count=2):
     def _children_name_list(children):
@@ -83,7 +91,7 @@ def envidat_theme_get_children_packages(organization, count=2):
 
     packages = organization.get('packages', [])
     children_organizations = _children_name_list(
-        helpers.group_tree_section(organization['id'], include_parents=False, include_siblings=False).get('children',
+        _group_tree_section(organization['id'], include_parents=False, include_siblings=False).get('children',
                                                                                                           []))
     for children in children_organizations:
         packages += p.toolkit.get_action('organization_show')({}, {'id': children, 'include_datasets': True}).get(
