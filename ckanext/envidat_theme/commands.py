@@ -5,7 +5,6 @@ import click
 import os
 
 from pathlib import Path
-import ckan.plugins.toolkit as toolkit
 import ckan.model as model
 import ckan.plugins as p
 from ckanapi import LocalCKAN
