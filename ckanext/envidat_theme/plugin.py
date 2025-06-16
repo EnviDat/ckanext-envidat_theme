@@ -61,8 +61,10 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
 
     # IActions
     def get_actions(self):
-        return {'envidat_context_user_show': action.context_user_show,
-                'envidat_get_author_data': action.envidat_get_author_data}
+        return {
+            # 'envidat_context_user_show': action.context_user_show,
+            'envidat_get_author_data': action.envidat_get_author_data
+        }
 
     # IAuthFunctions
     # The portal admin can always update
