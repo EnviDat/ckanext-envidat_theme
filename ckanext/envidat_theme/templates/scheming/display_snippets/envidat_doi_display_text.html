@@ -1,0 +1,5 @@
+{% if not data["publication_state"] or data["publication_state"]  == "published" %}
+    {{ data[field.field_name] }}
+{% else %}
+   <div style="color:grey;"><i>(Publication pending:{{ data[field.field_name] }})<i></div>
+{% endif %}

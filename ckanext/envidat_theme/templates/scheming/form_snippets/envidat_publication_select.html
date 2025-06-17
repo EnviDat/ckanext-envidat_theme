@@ -1,0 +1,38 @@
+{% import 'macros/form.html' as form %}
+
+{% if h.datacite_publication_is_admin() %}
+	{%- snippet 'scheming/form_snippets/select.html', field=field, data=data, errors=errors -%}
+{% else %}
+
+{%- set options=[] -%}
+{%- for c in h.scheming_field_choices(field) -%}
+  {%- if not form_restrict_choices_to or c.value in form_restrict_choices_to -%}
+    {% if c.value == data[field.field_name] %}
+      {%- do options.append({
+        'value': c.value,
+        'text': h.scheming_language_text(c.label) }) -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- set form_restrict_choices_to=field.get('form_restrict_choices_to') -%}
+{%- if not h.scheming_field_required(field) or
+    field.get('form_include_blank_choice', false) -%}
+  {%- do options.append({'value': '', 'text': ''}) -%}
+{%- endif -%}
+
+<div class="form-group control-select">
+
+  <label class="control-label" for="field-publication_state">Publication State</label>
+  {% set pub_state_text = options[0].get('text', data.get(field.field_name, 'None')) %}
+  <p>{{ pub_state_text if pub_state_text|length > 1 else 'None' }}</p>
+
+  <div class="controls" hidden="true">
+  <select id="field-publication_state" name="publication_state" class="form-control" hidden="true">
+    <option value="{{ data[field.field_name] }}" selected="true" >{{ options[0].get('text', data[field.field_name]) }}</option>
+  </select>
+  
+  </div>
+</div>
+
+{% endif %}
+
