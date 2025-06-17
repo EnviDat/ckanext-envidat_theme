@@ -1,0 +1,16 @@
+{% import 'macros/form.html' as form %}
+
+{% if h.datacite_publication_doi_is_editable(data) %}
+	{%- snippet 'scheming/form_snippets/slug.html', field=field, data=data, errors=errors, object_type=object_type -%}
+{% else %}
+	<div class="form-group control-medium">
+	  <label class="control-label" for="field-publication_title">URL</label>
+	  <p>{{ data[field.field_name] }}</p>
+	</div>
+
+	<div class="form-group control-medium"  hidden="true">
+	  <div class="controls ">
+		  <input id="field-name" type="text" name="name" value="{{ data[field.field_name] }}" >
+	  </div>
+	</div>
+{% endif %}

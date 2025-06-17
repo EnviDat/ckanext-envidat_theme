@@ -8,7 +8,7 @@
       "field_name": "title",
       "label": "Title",
       "validators": "if_empty_same_as(name) unicode",
-      "form_snippet": "datacite_publication_title.html",
+      "form_snippet": "envidat_title.html",
       "form_attrs": {
           "data-module": "slug-preview-target"
         },
@@ -19,7 +19,7 @@
       "field_name": "name",
       "label": "URL",
       "validators": "not_empty unicode name_validator package_name_validator envidat_shortname_validator",
-      "form_snippet": "datacite_publication_url.html",
+      "form_snippet": "envidat_url.html",
       "form_placeholder": "eg. my-dataset"
     },
     {
@@ -34,7 +34,7 @@
     {
       "field_name": "publication_state",
       "label": "Publication State",
-      "preset": "datacite_publication_select",
+      "preset": "envidat_publication_select",
       "required": false,
       "choices": [
               {
