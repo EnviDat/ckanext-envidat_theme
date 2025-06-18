@@ -80,5 +80,6 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
         return blueprints.get_blueprints(self.name, self.__module__)
 
     # IClick
-    # def get_commands(self):
-    #     return commands.get_commands()
+    def get_commands(self):
+        # return commands.get_commands()
+        return []
