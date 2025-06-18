@@ -5,7 +5,8 @@ import ckan.plugins.toolkit as toolkit
 
 from ckan.lib.helpers import url_for, user_image
 
-from ckanext.envidat_theme import helpers, validation, logic, action, commands
+# from ckanext.envidat_theme import helpers, validation, logic, action, commands
+from ckanext.envidat_theme import helpers, validation, logic, action
 import ckanext.envidat_theme.blueprints as blueprints
 
 from ckan.lib.webassets_tools import add_public_path
@@ -79,5 +80,5 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
         return blueprints.get_blueprints(self.name, self.__module__)
 
     # IClick
-    def get_commands(self):
-        return commands.get_commands()
+    # def get_commands(self):
+    #     return commands.get_commands()
