@@ -155,7 +155,8 @@
       "required": true,
       "datacite":"creators",
       "subfields_label": " Author no.",
-      "validators": "composite_repeating_group2json envidat_reorder",
+      "before_validators": "composite_group2json restricted_username_from_mail",
+      "validators": "not_empty unicode_safe",
       "subfields": [
           {
             "field_name": "email",
