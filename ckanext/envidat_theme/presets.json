@@ -35,7 +35,7 @@
     {
       "preset_name": "envidat_dataset_organization",
       "values": {
-        "validators": "owner_org_validator unicode",
+        "validators": "owner_org_validator unicode_safe",
         "form_snippet": "envidat_organization.html"
       }
     },
