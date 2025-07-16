@@ -1,9 +1,5 @@
 {% import 'macros/form.html' as form %}
 
-{% if h.datacite_publication_is_admin() %}
-	{%- snippet 'scheming/form_snippets/select.html', field=field, data=data, errors=errors -%}
-{% else %}
-
 {%- set options=[] -%}
 {%- for c in h.scheming_field_choices(field) -%}
   {%- if not form_restrict_choices_to or c.value in form_restrict_choices_to -%}
@@ -34,5 +30,4 @@
   </div>
 </div>
 
-{% endif %}
 
