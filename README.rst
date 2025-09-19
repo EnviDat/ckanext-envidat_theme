@@ -1,48 +1,23 @@
-.. You should enable this project on travis-ci.org and coveralls.io to make
-   these badges work. The necessary Travis and Coverage config files have been
-   generated for you.
-
-.. image:: https://travis-ci.org/espona/ckanext-envidat_theme.svg?branch=master
-    :target: https://travis-ci.org/espona/ckanext-envidat_theme
-
-.. image:: https://coveralls.io/repos/espona/ckanext-envidat_theme/badge.svg
-  :target: https://coveralls.io/r/espona/ckanext-envidat_theme
-
-.. image:: https://pypip.in/download/ckanext-envidat_theme/badge.svg
-    :target: https://pypi.python.org/pypi//ckanext-envidat_theme/
-    :alt: Downloads
-
-.. image:: https://pypip.in/version/ckanext-envidat_theme/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-envidat_theme/
-    :alt: Latest Version
-
-.. image:: https://pypip.in/py_versions/ckanext-envidat_theme/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-envidat_theme/
-    :alt: Supported Python versions
-
-.. image:: https://pypip.in/status/ckanext-envidat_theme/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-envidat_theme/
-    :alt: Development Status
-
-.. image:: https://pypip.in/license/ckanext-envidat_theme/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-envidat_theme/
-    :alt: License
-
 =============
 ckanext-envidat_theme
 =============
 
-.. Put a description of your extension here:
-   What does it do? What features does it have?
-   Consider including some screenshots or embedding a video!
+Extension contains JSON schemas used by ckanext-scheming to customize EnviDat dataset and organization fields.
 
 
 ------------
 Requirements
 ------------
 
-For example, you might want to mention here which versions of CKAN this
-extension works with.
+The table below shows which version tags for the extension are compatible with which CKAN versions.
+
+*Other CKAN versions may be possibly compatible but have not been tested.*
+
++---------------+-------------------------+
+| Version Tag   | CKAN Compatible Version |
++===============+=========================+
+| 1.0.0         | 2.9.9b                  |
++---------------+-------------------------+
 
 
 ------------
