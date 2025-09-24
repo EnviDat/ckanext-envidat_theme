@@ -35,9 +35,26 @@
     {
       "preset_name": "envidat_dataset_organization",
       "values": {
-        "validators": "owner_org_validator unicode",
+        "validators": "owner_org_validator unicode_safe",
         "form_snippet": "envidat_organization.html"
       }
+    },
+    {
+      "preset_name": "envidat_doi_text",
+      "values": {
+        "form_snippet": "envidat_doi_text.html",
+        "display_snippet": "envidat_doi_display_text.html",
+        "validators": "scheming_required"
+      }
+    },
+    {
+      "preset_name": "envidat_publication_select",
+      "values": {
+        "form_snippet": "envidat_publication_select.html",
+        "display_snippet": "select.html",
+        "validators": "scheming_required scheming_choices"
+      }
     }
+
   ]
 }

@@ -1,0 +1,16 @@
+{% import 'macros/form.html' as form %}
+
+{# same as scheming default select but removing blank if form_restrict_choices_to
+   also for non mandatory fields #}
+
+<div class="form-group control-medium">
+  <label class="control-label" for="field-publication_state">DOI</label>
+  <p>{{ data[field.field_name] }}</p>
+    {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
+</div>
+
+<div class="form-group control-medium"  hidden="true">
+  <div class="controls ">
+	<input id="field-doi" type="text" name="doi" value="{{ data[field.field_name] }}" placeholder="eg. 10.12345/678" class="form-control"  hidden="true">
+  </div>
+</div>

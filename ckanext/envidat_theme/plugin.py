@@ -5,7 +5,8 @@ import ckan.plugins.toolkit as toolkit
 
 from ckan.lib.helpers import url_for, user_image
 
-from ckanext.envidat_theme import helpers, validation, logic, action, commands
+# from ckanext.envidat_theme import helpers, validation, logic, action, commands
+from ckanext.envidat_theme import helpers, validation, logic, action
 import ckanext.envidat_theme.blueprints as blueprints
 
 from ckan.lib.webassets_tools import add_public_path
@@ -61,8 +62,10 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
 
     # IActions
     def get_actions(self):
-        return {'envidat_context_user_show': action.context_user_show,
-                'envidat_get_author_data': action.envidat_get_author_data}
+        return {
+            # 'envidat_context_user_show': action.context_user_show,
+            'envidat_get_author_data': action.envidat_get_author_data
+        }
 
     # IAuthFunctions
     # The portal admin can always update
@@ -78,4 +81,5 @@ class Envidat_ThemePlugin(plugins.SingletonPlugin, DefaultTranslation):
 
     # IClick
     def get_commands(self):
-        return commands.get_commands()
+        # return commands.get_commands()
+        return []
